@@ -16,7 +16,7 @@ describe('immutable-app', function () {
             // reset global app config
             await app.reset()
             // set configuration for testing
-            app.set({
+            app.config({
                 // do not exit on listen errors
                 exit: false,
                 // do not log
