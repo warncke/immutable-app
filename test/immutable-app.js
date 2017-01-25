@@ -1,6 +1,5 @@
 'use strict'
 
-const Promise = require('bluebird')
 const app = require('../lib/immutable-app')
 const chai = require('chai')
 const chaiAsPromised = require('chai-as-promised')
@@ -9,13 +8,46 @@ const httpClient = require('immutable-http-client')
 chai.use(chaiAsPromised)
 const assert = chai.assert
 
-const testPort = 37591
-const testUrl = 'http://localhost:'+testPort
-
 describe('immutable-app', function () {
 
-    beforeEach(function () {
-        app.reset()
+    beforeEach(async function () {
+        // catch async errors
+        try {
+            // reset global app config
+            await app.reset()
+            // set configuration for testing
+            app.set({
+                // do not exit on listen errors
+                exit: false,
+                // do not log
+                log: false,
+            })
+        }
+        catch (err) {
+            throw err
+        }
+    })
+
+    it('should start new app', async function () {
+        // catch async errors
+        try {
+            // start server
+            await app.start()
+        }
+        catch (err) {
+            assert.ifError(err)
+        }
+    })
+
+    it('should restart app', async function () {
+        // catch async errors
+        try {
+            // start server
+            await app.start()
+        }
+        catch (err) {
+            assert.ifError(err)
+        }
     })
 
 })
