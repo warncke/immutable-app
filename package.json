@@ -10,7 +10,7 @@
     "express-handlebars": "^3.0.0",
     "get-env": "^0.5.10",
     "immutable-core": "^1.0.3",
-    "immutable-core-model": "^0.5.1",
+    "immutable-core-model": "^0.5.4",
     "morgan": "^1.7.0",
     "stack-trace": "0.0.9"
   },
@@ -35,5 +35,5 @@
   "scripts": {
     "test": "mocha --harmony-async-await"
   },
-  "version": "0.0.9"
+  "version": "0.0.10"
 }
