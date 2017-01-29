@@ -37,7 +37,7 @@ describe('immutable-app', function () {
             // reset immutable modules
             immutable.reset()
             // drop any test tables
-            await database.query('DROP TABLE IF EXISTS foo'),
+            await database.query('DROP TABLE IF EXISTS foo')
             // reset global app config
             await immutableApp.reset()
             // create new app instance
