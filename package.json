@@ -3,6 +3,7 @@
   "dependencies": {
     "bluebird": "^3.4.7",
     "body-parser": "^1.16.0",
+    "change-case": "^3.0.1",
     "cookie-parser": "^1.4.3",
     "debug": "^2.6.0",
     "deep-freeze": "0.0.1",
@@ -35,5 +36,5 @@
   "scripts": {
     "test": "mocha --harmony-async-await"
   },
-  "version": "0.0.10"
+  "version": "0.0.11"
 }

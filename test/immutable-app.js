@@ -32,7 +32,6 @@ describe('immutable-app', function () {
     var database = new ImmutableDatabaseMariaSQL(connectionParams)
 
     beforeEach(async function () {
-        // catch async errors
         try {
             // reset immutable modules
             immutable.reset()
@@ -60,7 +59,6 @@ describe('immutable-app', function () {
     })
 
     it('should start new app', async function () {
-        // catch async errors
         try {
             // start server
             await app.start()
@@ -70,11 +68,25 @@ describe('immutable-app', function () {
         }
     })
 
-    it('should restart app', async function () {
-        // catch async errors
+    it('should serve templates with default controller', async function () {
         try {
             // start server
             await app.start()
+            // get index page
+            var res = await httpClient.get('http://localhost:7777/')
+            // check response
+            assert.strictEqual(res.statusCode, 200)
+            assert.strictEqual(res.body, '<h1>Hello World</h1>')
+            // get foo index page
+            var res = await httpClient.get('http://localhost:7777/foo')
+            // check response
+            assert.strictEqual(res.statusCode, 200)
+            assert.strictEqual(res.body, '<h1>Foo</h1>')
+            // get foo index page
+            var res = await httpClient.get('http://localhost:7777/foo/bar')
+            // check response
+            assert.strictEqual(res.statusCode, 200)
+            assert.strictEqual(res.body, '<h1>Bar</h1>')
         }
         catch (err) {
             assert.ifError(err)
