@@ -8,7 +8,7 @@
     "debug": "^2.6.0",
     "deep-freeze": "0.0.1",
     "express": "^4.14.0",
-    "express-handlebars": "^3.0.0",
+    "express-handlebars-multi": "0.1.0",
     "get-env": "^0.5.10",
     "immutable-core": "^1.0.3",
     "immutable-core-model": "^0.5.4",
@@ -36,5 +36,5 @@
   "scripts": {
     "test": "mocha --harmony-async-await"
   },
-  "version": "0.0.11"
+  "version": "0.0.12"
 }
