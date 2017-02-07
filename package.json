@@ -12,6 +12,7 @@
     "get-env": "^0.5.10",
     "immutable-core": "^1.0.3",
     "immutable-core-model": "^0.5.4",
+    "immutable-require-valid-optional-object": "^0.1.0",
     "morgan": "^1.7.0",
     "stack-trace": "0.0.9"
   },
@@ -36,5 +37,5 @@
   "scripts": {
     "test": "mocha --harmony-async-await"
   },
-  "version": "0.0.12"
+  "version": "0.0.13"
 }
