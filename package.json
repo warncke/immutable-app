@@ -14,6 +14,7 @@
     "immutable-core-model": "^0.5.4",
     "immutable-require-valid-optional-object": "^0.1.0",
     "morgan": "^1.7.0",
+    "random-unique-id": "^0.1.0",
     "stack-trace": "0.0.9"
   },
   "description": "Immutable app",
@@ -37,5 +38,5 @@
   "scripts": {
     "test": "mocha --harmony-async-await"
   },
-  "version": "0.0.13"
+  "version": "0.0.14"
 }
