@@ -1,29 +1,29 @@
 {
   "author": "Ersun Warncke <ersun.warncke@gmail.com>",
   "dependencies": {
-    "bluebird": "^3.4.7",
-    "body-parser": "^1.16.0",
-    "change-case": "^3.0.1",
-    "cookie-parser": "^1.4.3",
-    "debug": "^2.6.0",
+    "bluebird": "3.4.7",
+    "body-parser": "1.16.1",
+    "change-case": "3.0.1",
+    "cookie-parser": "1.4.3",
+    "debug": "2.6.1",
     "deep-freeze": "0.0.1",
-    "express": "^4.14.0",
-    "express-handlebars-multi": "0.1.0",
-    "get-env": "^0.5.10",
-    "immutable-core": "^1.1.2",
-    "immutable-core-model": "^0.6.6",
-    "immutable-require-valid-optional-object": "^0.1.0",
-    "morgan": "^1.7.0",
-    "random-unique-id": "^0.1.0",
+    "express": "4.14.1",
+    "express-handlebars-multi": "0.1.1",
+    "get-env": "0.5.10",
+    "immutable-core": "1.1.2",
+    "immutable-core-model": "0.6.9",
+    "immutable-require-valid-optional-object": "0.1.0",
+    "morgan": "1.8.1",
+    "random-unique-id": "0.1.0",
     "stack-trace": "0.0.9"
   },
   "description": "Immutable app",
   "devDependencies": {
-    "chai": "^3.5.0",
-    "chai-as-promised": "^6.0.0",
-    "immutable-database-mariasql": "^1.0.0",
-    "immutable-http-client": "^0.3.0",
-    "mocha": "^3.0.2"
+    "chai": "3.5.0",
+    "chai-as-promised": "6.0.0",
+    "immutable-database-mariasql": "1.0.0",
+    "immutable-http-client": "0.3.0",
+    "mocha": "3.2.0"
   },
   "directories": {
     "test": "test"
