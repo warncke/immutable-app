@@ -29,14 +29,14 @@
     "test": "test"
   },
   "engines": {
-    "node": ">=7.0.0"
+    "node": ">=7.6.0"
   },
   "license": "MIT",
   "main": "lib/immutable-app.js",
   "name": "immutable-app",
   "repository": "warncke/immutable-app",
   "scripts": {
-    "test": "mocha --harmony-async-await"
+    "test": "mocha"
   },
-  "version": "0.0.17"
+  "version": "0.0.18"
 }
