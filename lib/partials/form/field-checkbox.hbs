@@ -1,0 +1,8 @@
+{{#if field.label}}
+    <label class="pure-checkbox">
+        <input type="checkbox" name="{{field.name}}" {{#if field.value}}checked{{/if}} />
+        {{field.label}}
+    </label>
+{{else}}
+    <input type="checkbox" name="{{field.name}}" {{#if field.value}}checked{{/if}} />
+{{/if}}

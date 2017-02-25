@@ -1,0 +1,30 @@
+<form action="{{{form.action}}}" id="{{form.id}}" method="{{form.method}}" enctype="{{form.enctype}}" class="pure-form pure-form-stacked">
+
+    <fieldset>
+
+        <legend><h2>{{form.title}}</h2></legend>
+
+        {{#if form.errors}}
+        <div class="errors">
+            {{#each form.errors}}
+            <div class="error">
+                {{this}}
+            </div>
+            {{/each}}
+        </div>
+        {{/if}}
+
+        {{#each form.fields}}
+            {{>form/field-row fields=this}}
+        {{/each}}
+
+    </fieldset>
+    <fieldset>
+
+        <button type="submit" class="pure-button pure-button-primary">
+            {{form.submit.title}}
+        </button>
+
+    </fieldset>
+
+</form>

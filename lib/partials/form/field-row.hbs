@@ -1,0 +1,9 @@
+<div class="pure-g">
+{{#if (isArray fields)}}
+    {{#each fields}}
+        {{>form/field field=this}}
+    {{/each}}
+{{else}}
+    {{>form/field field=fields}}
+{{/if}}
+</div>

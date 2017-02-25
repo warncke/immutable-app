@@ -1,0 +1,9 @@
+<h1>Error</h1>
+
+<h2>{{#if error.code}}{{error.code}} - {{/if}}{{error.message}}</h2>
+
+{{#unless isProd}}
+<pre>
+{{error.stack}}
+</pre>
+{{/unless}}

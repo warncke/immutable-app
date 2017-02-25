@@ -1,0 +1,13 @@
+{{#if field.label}}
+    <label for="{{field.id}}" class="{{#if field.error}}error{{/if}}">
+        {{field.label}}
+    </label>
+{{/if}}
+
+<input type="text" id="{{field.id}}" name="{{field.name}}" {{#if field.placeholder}}placeholder="{{field.placeholder}}"{{/if}} {{#if field.pattern}}pattern="{{field.pattern}}"{{/if}} {{#if field.value}}value="{{field.value}}"{{/if}} class="{{#if field.error}}error{{/if}}" {{#if field.readonly}}readonly{{/if}} />
+
+{{#if field.error}}
+<div class="error">
+    {{field.error}}
+</div>
+{{/if}}
