@@ -1,0 +1,10 @@
+<table class="pure-table pure-table-striped">
+    <thead>
+        {{>table/head}}
+    </thead>
+    <tbody>
+        {{#each records}}
+            {{>table/row fields=../fields}}
+        {{/each}}
+    </tbody>
+</table>

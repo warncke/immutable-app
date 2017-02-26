@@ -1,0 +1,27 @@
+<tr>
+    {{#each fields}}
+        <th>
+            {{title}}
+            {{#if orderAscUrl}}
+                <a href="{{orderAscUrl}}"><i class="fa fa-{{orderAscIcon}}" aria-hidden="true"></i></a>
+            {{/if}}
+            {{#if orderDescUrl}}
+                <a href="{{orderDescUrl}}"><i class="fa fa-{{orderDescIcon}}" aria-hidden="true"></i></a>
+            {{/if}}
+            {{#if searchBy}}
+                <span class="shower">
+                    <i class="fa fa-{{searchIcon}}" aria-hidden="true"></i>
+
+                    <div class="field-filter hide shower-target">
+                        <form action="./" method="GET" class="pure-form">
+                            <input name="{{property}}" />
+                            <button type="submit" class="pure-button">
+                                <i class="fa fa-{{searchIcon}}" aria-hidden="true"></i>
+                            </button>
+                        </form>
+                    </div>
+                </span>
+            {{/if}}
+        </th>
+    {{/each}}
+</tr>

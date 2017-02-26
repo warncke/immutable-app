@@ -2,6 +2,15 @@
     <label class="pure-checkbox">
         <input type="checkbox" name="{{field.name}}" {{#if field.value}}checked{{/if}} />
         {{field.label}}
+
+        {{#if field.description}}
+        <span class="shower">
+            <i class="fa fa-question" aria-hidden="true"></i>
+            <div class="description hide shower-target">
+                {{field.description}}
+            </div>
+        </span>
+        {{/if}}
     </label>
 {{else}}
     <input type="checkbox" name="{{field.name}}" {{#if field.value}}checked{{/if}} />

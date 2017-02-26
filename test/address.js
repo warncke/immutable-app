@@ -60,7 +60,7 @@ describe('immutable-app', function () {
         }
     })
 
-    it.only('should get new address page', async function () {
+    it('should get new address page', async function () {
         try {
             // get new address page
             var res = await httpClient.get('http://localhost:7777/address/new')

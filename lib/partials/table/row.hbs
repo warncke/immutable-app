@@ -1,0 +1,15 @@
+<tr>
+    {{#each fields}}
+    <td>
+        {{#if meta}}
+            {{lookup ../this this.property}}
+        {{else if actions}}
+            {{#each ../this.actions}}
+            <a href="{{href}}" class="action">{{title}}</a>
+            {{/each}}
+        {{else}}
+            {{lookup ../this.data this.property}}
+        {{/if}}
+    </td>
+    {{/each}}
+</tr>
