@@ -2,8 +2,12 @@
     {{#each fields}}
     <td>
         {{#if meta}}
-            {{lookup ../this this.property}}
-        {{else if actions}}
+            {{#if url}}
+                <a href="{{#if prefix}}{{prefix}}{{/if}}{{lookup ../this this.property}}">{{title}}</a>
+            {{else}}
+                {{lookup ../this this.property}}
+            {{/if}}
+        {{else if actions.length}}
             {{#each ../this.actions}}
             <a href="{{href}}" class="action">{{title}}</a>
             {{/each}}

@@ -1,7 +1,5 @@
 <form action="{{{form.action}}}" id="{{form.id}}" method="{{form.method}}" enctype="{{form.enctype}}" class="pure-form pure-form-stacked">
 
-    <h2>{{form.title}}</h2>
-
     <fieldset>
 
         {{#if form.errors}}
@@ -19,6 +17,7 @@
         {{/each}}
 
     </fieldset>
+    {{#if form.submit}}
     <fieldset>
 
         <button type="submit" class="pure-button pure-button-primary">
@@ -26,5 +25,6 @@
         </button>
 
     </fieldset>
+    {{/if}}
 
 </form>
