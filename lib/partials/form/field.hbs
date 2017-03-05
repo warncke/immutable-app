@@ -5,4 +5,10 @@
     {{#eq field.inputType 'checkbox'}}
         {{>form/field-checkbox}}
     {{/eq}}
+    {{#eq field.inputType 'select'}}
+        {{>form/field-select}}
+    {{/eq}}
+    {{#eq field.inputType 'hidden'}}
+        {{>form/field-hidden}}
+    {{/eq}}
 </div>

@@ -1,19 +1,25 @@
 <tr>
     {{#each fields}}
-    <td>
-        {{#if meta}}
-            {{#if url}}
-                <a href="{{#if prefix}}{{prefix}}{{/if}}{{lookup ../this this.property}}">{{title}}</a>
-            {{else}}
-                {{lookup ../this this.property}}
-            {{/if}}
-        {{else if actions.length}}
-            {{#each ../this.actions}}
-            <a href="{{href}}" class="action">{{title}}</a>
-            {{/each}}
+        {{#if actions}}
+            {{#unless ../noActions}}
+                <td>
+                    {{#each ../this.actions}}
+                    <a href="{{href}}" class="action">{{title}}</a>
+                    {{/each}}
+                </td>
+            {{/unless}}
         {{else}}
-            {{lookup ../this.data this.property}}
+            <td>
+                {{#if meta}}
+                    {{#if url}}
+                        <a href="{{#if prefix}}{{prefix}}{{/if}}{{lookup ../this this.property}}">{{title}}</a>
+                    {{else}}
+                        {{lookup ../this this.property}}
+                    {{/if}}
+                {{else}}
+                    {{lookup ../this.data this.property}}
+                {{/if}}
+            </td>
         {{/if}}
-    </td>
     {{/each}}
 </tr>

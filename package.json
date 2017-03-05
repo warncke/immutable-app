@@ -1,22 +1,24 @@
 {
   "author": "Ersun Warncke <ersun.warncke@gmail.com>",
   "dependencies": {
-    "bluebird": "3.4.7",
-    "body-parser": "1.16.1",
+    "bluebird": "3.5.0",
+    "body-parser": "1.17.0",
     "change-case": "3.0.1",
     "cookie-parser": "1.4.3",
     "debug": "2.6.1",
     "deep-freeze": "0.0.1",
-    "express": "4.14.1",
+    "express": "4.15.0",
     "express-handlebars-multi": "0.1.1",
     "get-env": "0.5.10",
     "handlebars-helpers": "0.8.0",
+    "immutable-app-http-error": "0.1.1",
+    "immutable-app-http-redirect": "0.1.0",
     "immutable-core": "1.2.0",
-    "immutable-core-controller": "0.1.0",
-    "immutable-core-model": "1.2.2",
+    "immutable-core-controller": "0.3.1",
+    "immutable-core-model": "1.5.0",
     "immutable-require-valid-optional-object": "0.1.1",
     "morgan": "1.8.1",
-    "pluralize": "3.1.0",
+    "pluralize": "4.0.0",
     "random-unique-id": "0.1.1",
     "stack-trace": "0.0.9"
   },
@@ -41,5 +43,5 @@
   "scripts": {
     "test": "mocha"
   },
-  "version": "0.0.21"
+  "version": "0.1.0"
 }
