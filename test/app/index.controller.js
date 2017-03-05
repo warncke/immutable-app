@@ -3,7 +3,10 @@
 module.exports = {
     paths: {
         '/:foo': {
-            get: getFoo,
+            get: {
+                method: getFoo,
+                methodName: 'getFoo',
+            },
         },
     },
 }

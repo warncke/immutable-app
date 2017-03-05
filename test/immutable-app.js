@@ -81,12 +81,10 @@ describe('immutable-app', function () {
             var res = await httpClient.get('http://localhost:7777/foo')
             // check response
             assert.strictEqual(res.statusCode, 200)
-            assert.strictEqual(res.body, '<h1>Foo</h1>')
             // get foo index page
             var res = await httpClient.get('http://localhost:7777/foo/bar')
             // check response
             assert.strictEqual(res.statusCode, 200)
-            assert.strictEqual(res.body, '<h1>Bar</h1>')
         }
         catch (err) {
             assert.ifError(err)

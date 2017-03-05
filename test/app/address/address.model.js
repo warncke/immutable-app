@@ -4,6 +4,9 @@ const ImmutableCoreModel = require('immutable-core-model')
 
 module.exports = new ImmutableCoreModel({
     name: 'address',
+    columns: {
+        accountId: false,
+    },
     properties: {
         addressCountry: {
             default: 'US',
