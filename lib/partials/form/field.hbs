@@ -1,14 +1,25 @@
 <div class="pure-u-1 ">
-    {{#eq field.inputType 'text'}}
-        {{>form/field-text}}
-    {{/eq}}
-    {{#eq field.inputType 'checkbox'}}
-        {{>form/field-checkbox}}
-    {{/eq}}
-    {{#eq field.inputType 'select'}}
-        {{>form/field-select}}
-    {{/eq}}
-    {{#eq field.inputType 'hidden'}}
-        {{>form/field-hidden}}
-    {{/eq}}
+    {{#if field.legend}}
+        {{>form/field-legend}}
+    {{else if field.nested}}
+        {{#if field.array}}
+            {{>form/field-nested-array}}
+        {{/if}}
+    {{else}}
+        {{#eq field.inputType 'text'}}
+            {{>form/field-text}}
+        {{/eq}}
+        {{#eq field.inputType 'checkbox'}}
+            {{>form/field-checkbox}}
+        {{/eq}}
+        {{#eq field.inputType 'select'}}
+            {{>form/field-select}}
+        {{/eq}}
+        {{#eq field.inputType 'hidden'}}
+            {{>form/field-hidden}}
+        {{/eq}}
+        {{#eq field.inputType 'color'}}
+            {{>form/field-color}}
+        {{/eq}}
+    {{/if}}
 </div>

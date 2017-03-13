@@ -1,9 +1,9 @@
 {{#each css}}
-    <link rel="stylesheet" href="{{{href}}}" {{#if integrity}}integrity="{{integrity}}"{{/if}} {{#if crossorigin}}crossorigin="{{crossorigin}}"{{/if}} />
+    <link rel="stylesheet" href="{{{href}}}" {{#if integrity}}integrity="{{{integrity}}}"{{/if}} {{#if crossorigin}}crossorigin="{{crossorigin}}"{{/if}} />
 {{/each}}
 
 {{#each js}}
-    <script src="{{{src}}}" {{#if integrity}}integrity="{{integrity}}"{{/if}} {{#if crossorigin}}crossorigin="{{crossorigin}}"{{/if}} {{#if async}}async{{/if}} {{#if defer}}defer{{/if}}></script>
+    <script src="{{{src}}}" {{#if integrity}}integrity="{{{integrity}}}"{{/if}} {{#if crossorigin}}crossorigin="{{crossorigin}}"{{/if}} {{#if async}}async{{/if}} {{#if defer}}defer{{/if}}></script>
 {{/each}}
 
 {{#each styles}}

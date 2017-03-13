@@ -1,0 +1,32 @@
+<table class="pure-table pure-table-striped">
+    <thead>
+        <tr>
+            {{#each field.fields}}
+                <th>{{title}}</th>
+            {{/each}}
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody class="nested-array">
+        {{#each field.values}}
+            <tr class="nested-array-item">
+                {{#each this}}
+                    <td>{{>form/field field=this}}</td>
+                {{/each}}
+                <td class="nested-array-item-actions">
+                    {{>form/field-nested-array-actions}}
+                </td>
+            </tr>
+        {{/each}}
+        <tr class="nested-array-item">
+            {{#each field.fields}}
+                <td>{{>form/field field=this}}</td>
+            {{/each}}
+            <td class="nested-array-item-actions">
+                {{>form/field-nested-array-actions}}
+            </td>
+        </tr>
+    </tbody>
+</table>

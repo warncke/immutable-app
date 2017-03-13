@@ -67,3 +67,17 @@ a.reset {
     font-weight: normal;
     text-decoration: none;
 }
+
+legend {
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.nested-array-item-actions i {
+    font-size: 20px;
+    padding: 4px;
+}
