@@ -20,6 +20,7 @@
                 </td>
             </tr>
         {{/each}}
+        {{#unless field.values.length}}
         <tr class="nested-array-item">
             {{#each field.fields}}
                 <td>{{>form/field field=this}}</td>
@@ -28,5 +29,12 @@
                 {{>form/field-nested-array-actions}}
             </td>
         </tr>
+        {{/unless}}
     </tbody>
 </table>
+
+{{#if field.error}}
+<div class="error">
+    {{field.error}}
+</div>
+{{/if}}
