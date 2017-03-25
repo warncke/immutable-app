@@ -6,6 +6,7 @@ const chai = require('chai')
 const chaiAsPromised = require('chai-as-promised')
 const httpClient = require('immutable-http-client')
 const immutable = require('immutable-core')
+const sinon = require('sinon')
 
 chai.use(chaiAsPromised)
 const assert = chai.assert
@@ -26,12 +27,18 @@ const connectionParams = {
 
 describe('immutable-app', function () {
 
-    var app
+    var app, sandbox
 
     // create database connection to use for testing
     var database = new ImmutableDatabaseMariaSQL(connectionParams)
 
     beforeEach(async function () {
+        // clear env variables
+        delete process.env.NO_SYNC
+        delete process.env.START_TEST_ONLY
+        // create sinon sandbox
+        sandbox = sinon.sandbox.create()
+        // reset immutable and database
         try {
             // reset immutable modules
             immutable.reset()
@@ -58,6 +65,11 @@ describe('immutable-app', function () {
         }
     })
 
+    afterEach(function () {
+        // reset all stubs
+        sandbox.restore()
+    })
+
     it('should start new app', async function () {
         try {
             // start server
@@ -66,6 +78,22 @@ describe('immutable-app', function () {
         catch (err) {
             assert.ifError(err)
         }
+    })
+
+    it('should stop server if START_TEST_ONLY env variable set', async function () {
+        // stub process.exit
+        var processExitStub = sandbox.stub(global.process, 'exit')
+        // set env variable
+        process.env.START_TEST_ONLY = true
+        try {
+            // start server
+            await app.start()
+        }
+        catch (err) {
+            assert.ifError(err)
+        }
+        // check that process.exit called
+        assert(processExitStub.calledOnce)
     })
 
     it('should serve templates with default controller', async function () {

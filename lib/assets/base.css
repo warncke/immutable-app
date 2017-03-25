@@ -46,12 +46,9 @@ th a {
     color: black;
 }
 
-.col-left {
-    overflow-x: auto;
-}
-
 .col {
     background-color: white;
+    overflow-x: auto;
 }
 
 .field-filter {
