@@ -13,7 +13,7 @@
     "handlebars-helpers": "0.8.2",
     "immutable-app-http-error": "0.1.1",
     "immutable-app-http-redirect": "0.1.0",
-    "immutable-core": "1.2.14",
+    "immutable-core": "1.2.15",
     "immutable-core-controller": "0.3.27",
     "immutable-core-model": "1.6.6",
     "immutable-require-valid-optional-object": "0.1.1",
@@ -45,5 +45,5 @@
   "scripts": {
     "test": "mocha"
   },
-  "version": "0.2.29"
+  "version": "0.2.30"
 }
