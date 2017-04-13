@@ -1,7 +1,9 @@
 'use strict'
 
-const ImmutableCoreModel = require('immutable-core-model')
-
-module.exports = new ImmutableCoreModel({
+module.exports = {
+    columns: {
+        accountId: false,
+        sessionId: false,
+    },
     name: 'foo',
-})
+}

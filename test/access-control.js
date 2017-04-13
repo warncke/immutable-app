@@ -27,7 +27,7 @@ const connectionParams = {
     user: dbUser,
 }
 
-describe('immutable-app', function () {
+describe('immutable-app - access control', function () {
 
     var accessControl, app, sandbox
 
@@ -38,8 +38,6 @@ describe('immutable-app', function () {
         // clear env variables
         delete process.env.NO_SYNC
         delete process.env.START_TEST_ONLY
-        // create sinon sandbox
-        sandbox = sinon.sandbox.create()
         // reset immutable modules
         immutable.reset()
         ImmutableAccessControl.reset()
@@ -65,82 +63,44 @@ describe('immutable-app', function () {
             // do not log
             log: false,
         })
+        // start server
+        await app.start()
     })
 
-    afterEach(function () {
-        // reset all stubs
-        sandbox.restore()
-    })
-
-    it('should start new app', async function () {
+    it('should allow access by default', async function () {
         try {
-            // start server
-            await app.start()
-        }
-        catch (err) {
-            assert.ifError(err)
-        }
-    })
-
-    it('should stop server if START_TEST_ONLY env variable set', async function () {
-        // stub process.exit
-        var processExitStub = sandbox.stub(global.process, 'exit')
-        // set env variable
-        process.env.START_TEST_ONLY = true
-        try {
-            // start server
-            await app.start()
-        }
-        catch (err) {
-            assert.ifError(err)
-        }
-        // check that process.exit called
-        assert(processExitStub.calledOnce)
-    })
-
-    it('should serve templates with default controller', async function () {
-        try {
-            // start server
-            await app.start()
-            // get index page
-            var res = await httpClient.get('http://localhost:7777/')
-            // check response
-            assert.strictEqual(res.statusCode, 200)
-            assert.strictEqual(res.body, '<h1>Hello World</h1>')
-            // get foo index page
-            var res = await httpClient.get('http://localhost:7777/foo')
-            // check response
-            assert.strictEqual(res.statusCode, 200)
-            // get foo index page
-            var res = await httpClient.get('http://localhost:7777/foo/bar')
-            // check response
-            assert.strictEqual(res.statusCode, 200)
-        }
-        catch (err) {
-            assert.ifError(err)
-        }
-    })
-
-    it('should create new foo instance', async function () {
-        try {
-            // start server
-            await app.start()
-            // get foo index page
-            var res = await httpClient.post('http://localhost:7777/foo/', {
-                body: {
-                    foo: {foo: 'bar'}
-                },
-                qs: {
-                    json: true,
-                },
-            })
+            var res = await httpClient.get('http://localhost:7777/foo/')
         }
         catch (err) {
             assert.ifError(err)
         }
         // check response
         assert.strictEqual(res.statusCode, 200)
-        assert.deepEqual(res.body.data, {foo: 'bar'})
+    })
+
+    it('should deny access to all', async function () {
+        try {
+            accessControl.setRule(['all', 'route:0'])
+            var res = await httpClient.get('http://localhost:7777/foo/')
+        }
+        catch (err) {
+            assert.ifError(err)
+        }
+        // check response
+        assert.strictEqual(res.statusCode, 403)
+    })
+
+    it('should allow access to specific', async function () {
+        try {
+            accessControl.setRule(['all', 'route:0'])
+            accessControl.setRule(['all', 'route:/foo/:get:1'])
+            var res = await httpClient.get('http://localhost:7777/foo/')
+        }
+        catch (err) {
+            assert.ifError(err)
+        }
+        // check response
+        assert.strictEqual(res.statusCode, 200)
     })
 
 })

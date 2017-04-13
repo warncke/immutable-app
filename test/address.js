@@ -1,5 +1,7 @@
 'use strict'
 
+const ImmutableAccessControl = require('immutable-access-control')
+const ImmutableCoreModel = require('immutable-core-model')
 const ImmutableDatabaseMariaSQL = require('immutable-database-mariasql')
 const immutableApp = require('../lib/immutable-app')
 const chai = require('chai')
@@ -24,40 +26,41 @@ const connectionParams = {
     user: dbUser,
 }
 
-describe('immutable-app', function () {
+describe('immutable-app - address', function () {
 
-    var app
+    var accessControl, app
 
     // create database connection to use for testing
     var database = new ImmutableDatabaseMariaSQL(connectionParams)
 
     beforeEach(async function () {
-        try {
-            // reset immutable modules
-            immutable.reset()
-            // drop any test tables
-            await database.query('DROP TABLE IF EXISTS address')
-            // reset global app config
-            await immutableApp.reset()
-            // create new app instance
-            app = immutableApp('test-app')
-            // set configuration for testing
-            app.config({
-                // set default database
-                database: {
-                    default: database,
-                },
-                // do not exit on listen errors
-                exit: false,
-                // do not log
-                log: false,
-            })
-            // start server
-            await app.start()
-        }
-        catch (err) {
-            throw err
-        }
+        // reset immutable modules
+        immutable.reset()
+        ImmutableAccessControl.reset()
+        ImmutableCoreModel.reset()
+        // create new access control provider
+        accessControl = new ImmutableAccessControl()
+        // disable strict mode
+        accessControl.strict = false
+        // drop any test tables
+        await database.query('DROP TABLE IF EXISTS address')
+        // reset global app config
+        await immutableApp.reset()
+        // create new app instance
+        app = immutableApp('test-app')
+        // set configuration for testing
+        app.config({
+            // set default database
+            database: {
+                default: database,
+            },
+            // do not exit on listen errors
+            exit: false,
+            // do not log
+            log: false,
+        })
+        // start server
+        await app.start()
     })
 
     it('should get new address page', async function () {
