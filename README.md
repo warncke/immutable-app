@@ -387,42 +387,42 @@ directory.
 Immutable App and the larger Immutable ecosystem are designed to facilitate the
 creation of Apps and APIs that:
 
-    * use immutable data
-    * are modular
-    * prefer convention over configuration
-    * prefer configuration over code
-    * are secure
-    * are massively scalable
-    * separate application logic from application framework
-    * separate application logic from data persistence
-    * allow SQL/NoSQL to be mixed transparently e.g. MySQL, ElasticSearch,
-      and Redis are all used to provide different functionality for models
-      and the data persistence layer uses a single schema and a single set
-      of access control rules to provide security and data validation no
-      matter which data store is used.
-    * provide a single location to define data schemas and validation rules
-      that are applied both in the browser and on the server
+* use immutable data
+* are modular
+* prefer convention over configuration
+* prefer configuration over code
+* are secure
+* are massively scalable
+* separate application logic from application framework
+* separate application logic from data persistence
+* allow SQL/NoSQL to be mixed transparently e.g. MySQL, ElasticSearch,
+  and Redis are all used to provide different functionality for models
+  and the data persistence layer uses a single schema and a single set
+  of access control rules to provide security and data validation no
+  matter which data store is used.
+* provide a single location to define data schemas and validation rules
+  that are applied both in the browser and on the server
 
 ### Immutable data
 
 The use of Immutable data has several critical advantages:
 
-    * Not allowing updates/deletes eliminates a large category of security
-      risks. Allows data stores to be much more secure against internal risks
-      because very few people need access to update/delete privileges.
-    * Data integrity is easier to maitain without updates and deletes. The need
-      for foreign key constraints which kill performance and prevent horizontal
-      scaling is elminated.
-    * The identification and collection of data for analytics does not need to
-      be a separate task because all data is stored. Storing everything removes
-      the problem of not knowing in advance what information will prove to be
-      valuable in the future.
-    * Audit logs, edit histories, scheduled data changes, and rollbacks are
-      standard features of every model as opposed to complex additional
-      features that must be designed for mutable data models on a one-off
-      basis.
-    * Because data records cannot be changed cached objects never have to be
-      invalidated. This allows for efficient and accurate caching of data.
+* Not allowing updates/deletes eliminates a large category of security
+  risks. Allows data stores to be much more secure against internal risks
+  because very few people need access to update/delete privileges.
+* Data integrity is easier to maitain without updates and deletes. The need
+  for foreign key constraints which kill performance and prevent horizontal
+  scaling is elminated.
+* The identification and collection of data for analytics does not need to
+  be a separate task because all data is stored. Storing everything removes
+  the problem of not knowing in advance what information will prove to be
+  valuable in the future.
+* Audit logs, edit histories, scheduled data changes, and rollbacks are
+  standard features of every model as opposed to complex additional
+  features that must be designed for mutable data models on a one-off
+  basis.
+* Because data records cannot be changed cached objects never have to be
+  invalidated. This allows for efficient and accurate caching of data.
 
 The paper and presentation
 [Immutability Changes Everything](http://cidrdb.org/cidr2015/Papers/CIDR15_Paper16.pdf)
@@ -530,22 +530,22 @@ in your app.js before requiring any modules.
 
 ### Immutable App components
 
-    * Express Application Server
-    * Immutable App Auth
-    * Immutable App Presenter
-        * Immutable Access Control
-        * Immutable App HTTP Error
-        * Immutable App HTTP Redirect
-    * Immutable Core Controller
-        * Immutable Core
-        * Immutable App HTTP Error
-        * Immutable App HTTP Redirect
-        * Immutable HTTP Client
-    * Immutable Core Model Form
-    * Immutable Core Model View
-    * Immutable Core Model
-        * Immutable Access Control
-        * Immutable Core
+* Express Application Server
+* Immutable App Auth
+* Immutable App Presenter
+..* Immutable Access Control
+..* Immutable App HTTP Error
+..* Immutable App HTTP Redirect
+* Immutable Core Controller
+..* Immutable Core
+..* Immutable App HTTP Error
+..* Immutable App HTTP Redirect
+..* Immutable HTTP Client
+* Immutable Core Model Form
+* Immutable Core Model View
+* Immutable Core Model
+..* Immutable Access Control
+..* Immutable Core
 
 #### Immutable App Auth
 
