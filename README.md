@@ -533,19 +533,19 @@ in your app.js before requiring any modules.
 * Express Application Server
 * Immutable App Auth
 * Immutable App Presenter
-..* Immutable Access Control
-..* Immutable App HTTP Error
-..* Immutable App HTTP Redirect
+  * Immutable Access Control
+  * Immutable App HTTP Error
+  * Immutable App HTTP Redirect
 * Immutable Core Controller
-..* Immutable Core
-..* Immutable App HTTP Error
-..* Immutable App HTTP Redirect
-..* Immutable HTTP Client
+  * Immutable Core
+  * Immutable App HTTP Error
+  * Immutable App HTTP Redirect
+  * Immutable HTTP Client
 * Immutable Core Model Form
 * Immutable Core Model View
 * Immutable Core Model
-..* Immutable Access Control
-..* Immutable Core
+  * Immutable Access Control
+  * Immutable Core
 
 #### Immutable App Auth
 
