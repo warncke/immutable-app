@@ -58,6 +58,8 @@ describe('immutable-app - address', function () {
             exit: false,
             // do not log
             log: false,
+            // do not use winston logger
+            logger: false,
         })
         // start server
         await app.start()

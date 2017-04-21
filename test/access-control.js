@@ -62,6 +62,8 @@ describe('immutable-app - access control', function () {
             exit: false,
             // do not log
             log: false,
+            // do not use winston logger
+            logger: false,
         })
         // start server
         await app.start()
