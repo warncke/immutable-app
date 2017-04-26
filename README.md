@@ -37,9 +37,9 @@ support.
 
     app.start()
 
-Immutable App is a "highly opinionated" framework in the sense that it comes
-with all of the necessary components for building a web based application or
-API fully integrated and ready to deploy.
+Immutable App is an "opinionated" framework in the sense that it comes with
+all of the necessary components for building a web based application or API
+fully integrated and ready to deploy.
 
 ## Apps and APIs
 
@@ -109,29 +109,45 @@ specifications.
 The files and folders in the app directory determine the routes that will be
 created for the app.
 
+Files can be either controllers, models, or templates.
+
+##### Controllers
+
+Controllers must be named like <Name>.controller.js but the name is not used
+for anything.
+
+Each controller file must export a plain object that can be passed to
+`new ImmutableCoreController`.
+
+ImmutableCoreController creates default controllers for ImmutableCoreModels
+so if a model exists controllers will automatically be created for it and any
+controller file(s) will be used to override the default controller
+configurations.
+
+##### Models
+
 Each model must be in its own directory and there can only be one model per
 directory.
 
 Models must be named with <Model_Name>.model.js such as `foo.model.js` for a
 model named foo.
 
-Model files must export either an ImmutableCoreModel or an object that can be
-passed to new ImmutableCoreModel.
+Model files must export a plain object that can be passed to
+`new ImmutableCoreModel`.
 
-Controllers must be named like <Name>.controller.js but the name is not used
-for anything.
+##### Extending controllers and models
 
-Each controller file must export either an ImmutableCoreController or an object
-that can be passed to new ImmutableCoreController.
+Immutable App is designed to be modular so controllers and models defined in
+modules can be extended by other modules or in an app.
 
-Multiple controller files may exist in the same directory as long as they
-export plain objects. These object will be merged together prior to calling
-new ImmutableCoreController.
+To extend an existing controller or model the controller or model must be in
+the same relative dir position.
 
-ImmutableCoreController creates default controllers for ImmutableCoreModels
-so if a model exists controllers will automatically be created for it and any
-controller file(s) will be used to override the default controller
-configurations.
+Controller and model specifications defined for the same relative directory in
+the app will be merged together in the order that module(s) are required in
+the app.
+
+##### Templates
 
 Template files must end with the `hbs` extension.
 
@@ -408,7 +424,7 @@ creation of Apps and APIs that:
 The use of Immutable data has several critical advantages:
 
 * Not allowing updates/deletes eliminates a large category of security
-  risks. Allows data stores to be much more secure against internal risks
+  risks. Allows data stores to be more secure against internal risks
   because very few people need access to update/delete privileges.
 * Data integrity is easier to maitain without updates and deletes. The need
   for foreign key constraints which kill performance and prevent horizontal
