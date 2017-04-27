@@ -1,8 +1,6 @@
 'use strict'
 
-const ImmutableCoreModel = require('immutable-core-model')
-
-module.exports = new ImmutableCoreModel({
+module.exports = {
     name: 'address',
     columns: {
         accountId: false,
@@ -50,4 +48,4 @@ module.exports = new ImmutableCoreModel({
         'postalCode',
         'streetAddress',
     ],
-})
+}
