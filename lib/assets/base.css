@@ -1,6 +1,32 @@
-.pad-m {
-    padding: 10px;
-}
+.pad-xl { padding: 30px }
+.pad-l { padding: 20px }
+.pad-m { padding: 10px }
+.pad-s { padding: 5px }
+.pad-t { padding: 2px }
+
+.pad-l-xl { padding-left: 30px }
+.pad-l-l { padding-left: 20px }
+.pad-l-m { padding-left: 10px }
+.pad-l-s { padding-left: 5px }
+.pad-l-t { padding-left: 2px }
+
+.pad-r-xl { padding-right: 30px }
+.pad-r-l { padding-right: 20px }
+.pad-r-m { padding-right: 10px }
+.pad-r-s { padding-right: 5px }
+.pad-r-t { padding-right: 2px }
+
+.pad-t-xl { padding-top: 30px }
+.pad-t-l { padding-top: 20px }
+.pad-t-m { padding-top: 10px }
+.pad-t-s { padding-top: 5px }
+.pad-t-t { padding-top: 2px }
+
+.pad-b-xl { padding-bottom: 30px }
+.pad-b-l { padding-bottom: 20px }
+.pad-b-m { padding-bottom: 10px }
+.pad-b-s { padding-bottom: 5px }
+.pad-b-t { padding-bottom: 2px }
 
 .errors {
     padding: 10px 0;
@@ -78,3 +104,7 @@ legend {
     font-size: 20px;
     padding: 4px;
 }
+
+.cb {clear: both}
+.fl {float: left}
+.fr {float: right}
