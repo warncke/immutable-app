@@ -9,7 +9,7 @@
     "debug": "2.6.6",
     "deep-freeze": "0.0.1",
     "express": "4.15.2",
-    "express-handlebars-multi": "0.1.18",
+    "express-handlebars-multi": "0.1.19",
     "get-env": "0.5.10",
     "handlebars-helpers": "0.8.2",
     "if-defined": "^1.0.1",
@@ -34,8 +34,8 @@
     "immutable-database-mariasql": "1.2.18",
     "immutable-http-client": "0.4.16",
     "mocha": "3.3.0",
-    "sinon": "2.1.0",
-    "sinon-chai": "2.9.0"
+    "sinon": "2.2.0",
+    "sinon-chai": "2.10.0"
   },
   "directories": {
     "test": "test"
@@ -50,5 +50,5 @@
   "scripts": {
     "test": "mocha"
   },
-  "version": "0.5.8"
+  "version": "0.5.9"
 }
