@@ -140,3 +140,7 @@ legend {
 .fr {float: right}
 
 .fixed {position: fixed}
+
+.pure-form select[disabled], .pure-form text-area[disabled] {
+    color: #777 !important;
+}
