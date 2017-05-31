@@ -17,6 +17,9 @@
         {{/each}}
 
     </fieldset>
+    {{#if form.redirect}}
+    <input type="hidden" name="redirect" value="{{form.redirect}}" />
+    {{/if}}
     {{#if form.submit}}
     <fieldset>
 

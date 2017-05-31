@@ -1,5 +1,7 @@
-<div>
-    <a href="./new">Create New</a>
+<div class="links">
+    {{#each links}}
+        <a href="{{href}}">{{title}}</a>
+    {{/each}}
 </div>
 
 <div class="pure-g">
