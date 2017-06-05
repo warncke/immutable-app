@@ -12,17 +12,17 @@
     "express-handlebars-multi": "0.1.28",
     "get-env": "0.5.10",
     "handlebars-helpers": "0.8.2",
-    "if-defined": "1.0.5",
-    "immutable-access-control": "0.4.1",
-    "immutable-app-http-error": "0.1.6",
-    "immutable-app-http-redirect": "0.1.5",
-    "immutable-core": "1.4.3",
-    "immutable-core-controller": "0.4.52",
-    "immutable-core-model": "2.0.5",
+    "if-defined": "1.0.6",
+    "immutable-access-control": "0.4.2",
+    "immutable-app-http-error": "0.1.7",
+    "immutable-app-http-redirect": "0.1.6",
+    "immutable-core": "1.4.6",
+    "immutable-core-controller": "0.4.54",
+    "immutable-core-model": "2.0.8",
     "immutable-require-valid-optional-object": "0.1.6",
     "morgan": "1.8.2",
     "pluralize": "5.0.0",
-    "random-unique-id": "1.0.2",
+    "random-unique-id": "1.0.4",
     "stack-trace": "0.0.10",
     "stack-utils": "1.0.1",
     "winston": "2.3.1"
@@ -31,8 +31,8 @@
   "devDependencies": {
     "chai": "4.0.1",
     "chai-as-promised": "6.0.0",
-    "immutable-database-mariasql": "1.3.2",
-    "immutable-http-client": "0.5.2",
+    "immutable-database-mariasql": "1.3.6",
+    "immutable-http-client": "0.5.5",
     "mocha": "3.4.2",
     "sinon": "2.3.2",
     "sinon-chai": "2.10.0"
@@ -50,5 +50,5 @@
   "scripts": {
     "test": "mocha"
   },
-  "version": "0.7.5"
+  "version": "0.7.6"
 }
