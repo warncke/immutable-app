@@ -135,6 +135,8 @@ legend {
     padding: 4px;
 }
 
+.center {text-align: center}
+
 .cb {clear: both}
 .fl {float: left}
 .fr {float: right}
