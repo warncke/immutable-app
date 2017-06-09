@@ -9,6 +9,9 @@
         {{#eq field.inputType 'text'}}
             {{>form/field-text}}
         {{/eq}}
+        {{#eq field.inputType 'textarea'}}
+            {{>form/field-textarea}}
+        {{/eq}}
         {{#eq field.inputType 'password'}}
             {{>form/field-password}}
         {{/eq}}
