@@ -9,7 +9,7 @@
     "debug": "2.6.8",
     "deep-freeze": "0.0.1",
     "express": "4.15.3",
-    "express-handlebars-multi": "0.1.32",
+    "express-handlebars-multi": "0.1.33",
     "get-env": "0.5.10",
     "handlebars-helpers": "0.8.2",
     "if-defined": "1.0.8",
@@ -17,7 +17,7 @@
     "immutable-app-http-error": "0.1.9",
     "immutable-app-http-redirect": "0.1.8",
     "immutable-core": "1.4.12",
-    "immutable-core-controller": "0.5.3",
+    "immutable-core-controller": "0.5.4",
     "immutable-core-model": "2.0.16",
     "immutable-require-valid-optional-object": "0.1.8",
     "morgan": "1.8.2",
@@ -50,5 +50,5 @@
   "scripts": {
     "test": "mocha"
   },
-  "version": "0.8.5"
+  "version": "0.8.6"
 }
