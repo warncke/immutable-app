@@ -16,7 +16,7 @@
     "immutable-access-control": "0.4.6",
     "immutable-app-http-error": "0.1.9",
     "immutable-app-http-redirect": "0.1.8",
-    "immutable-core": "1.4.12",
+    "immutable-core": "1.4.13",
     "immutable-core-controller": "0.5.4",
     "immutable-core-model": "2.0.16",
     "immutable-require-valid-optional-object": "0.1.8",
@@ -31,8 +31,8 @@
   "devDependencies": {
     "chai": "4.0.2",
     "chai-as-promised": "7.0.0",
-    "immutable-database-mariasql": "1.3.10",
-    "immutable-http-client": "0.6.0",
+    "immutable-database-mariasql": "1.3.11",
+    "immutable-http-client": "0.6.1",
     "mocha": "3.4.2",
     "sinon": "2.3.4",
     "sinon-chai": "2.11.0"
@@ -50,5 +50,5 @@
   "scripts": {
     "test": "mocha"
   },
-  "version": "0.8.6"
+  "version": "0.8.7"
 }
