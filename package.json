@@ -13,12 +13,12 @@
     "get-env": "0.5.10",
     "handlebars-helpers": "0.8.2",
     "if-defined": "1.0.8",
-    "immutable-access-control": "0.4.6",
+    "immutable-access-control": "0.4.7",
     "immutable-app-http-error": "0.1.9",
     "immutable-app-http-redirect": "0.1.8",
-    "immutable-core": "1.4.13",
-    "immutable-core-controller": "0.5.7",
-    "immutable-core-model": "2.0.17",
+    "immutable-core": "1.4.14",
+    "immutable-core-controller": "0.6.1",
+    "immutable-core-model": "2.1.2",
     "immutable-require-valid-optional-object": "0.1.8",
     "morgan": "1.8.2",
     "pluralize": "5.0.0",
@@ -50,5 +50,5 @@
   "scripts": {
     "test": "mocha"
   },
-  "version": "0.8.11"
+  "version": "0.8.12"
 }
