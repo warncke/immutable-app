@@ -12,7 +12,7 @@
     </label>
 {{/if}}
 
-<select id="{{field.id}}" class="{{#if field.error}}error{{/if}}" name="{{field.name}}" {{#if field.readonly}}disabled{{/if}}>
+<select id="{{field.id}}" name="{{field.name}}" class="{{#if field.error}}error{{/if}} {{field.property}} {{field.class}}" {{#if field.readonly}}disabled{{/if}}>
     <option value="">{{#if field.placeholder}}{{field.placeholder}}{{/if}}</option>
     {{#each field.options}}
         {{option.selected}}

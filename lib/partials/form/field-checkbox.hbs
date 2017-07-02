@@ -1,6 +1,6 @@
 {{#if field.label}}
     <label class="pure-checkbox">
-        <input type="checkbox" name="{{field.name}}" {{#if field.value}}checked{{/if}} {{#if field.readonly}}disabled{{/if}} />
+        <input type="checkbox" id="{{field.id}}" name="{{field.name}}" class="{{#if field.error}}error{{/if}} {{field.property}} {{field.class}}" {{#if field.value}}checked{{/if}} {{#if field.readonly}}disabled{{/if}} />
         {{field.label}}
 
         {{#if field.description}}
@@ -13,5 +13,5 @@
         {{/if}}
     </label>
 {{else}}
-    <input type="checkbox" name="{{field.name}}" {{#if field.value}}checked{{/if}} {{#if field.readonly}}disabled{{/if}} />
+    <input type="checkbox" id="{{field.id}}" name="{{field.name}}" class="{{#if field.error}}error{{/if}} {{field.property}} {{field.class}}" {{#if field.value}}checked{{/if}} {{#if field.readonly}}disabled{{/if}} />
 {{/if}}

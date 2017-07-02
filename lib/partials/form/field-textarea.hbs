@@ -12,13 +12,15 @@
     </label>
 {{/if}}
 
-<textarea id="{{field.id}}" name="{{field.name}}" class="{{#if field.error}}error{{/if}}" {{#if field.readonly}}readonly{{/if}} {{#if field.required}}required{{/if}}>{{field.value}}</textarea>
+<textarea id="{{field.id}}" name="{{field.name}}" class="{{#if field.error}}error{{/if}} {{field.property}} {{field.class}}" {{#if field.readonly}}readonly{{/if}} {{#if field.required}}required{{/if}}>{{field.value}}</textarea>
 
+{{#if field.ckeditor}}
 <script>
     CKEDITOR.replace('{{field.id}}', {
         customConfig: '/assets/ckeditor_config.js',
     })
 </script>
+{{/if}}
 
 {{#if field.error}}
 <div class="error">
