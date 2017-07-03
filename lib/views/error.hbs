@@ -2,7 +2,7 @@
 
 <h2>{{#if error.code}}{{error.code}} - {{/if}}{{error.message}}</h2>
 
-{{#unless isProd}}
+{{#unless production}}
     <pre>{{error.stack}}</pre>
 
     {{#if error.prettyData}}
