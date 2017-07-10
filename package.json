@@ -11,7 +11,7 @@
     "express": "4.15.3",
     "express-handlebars-multi": "0.2.3",
     "get-env": "0.5.10",
-    "handlebars-helpers": "0.9.2",
+    "handlebars-helpers": "0.8.4",
     "if-defined": "1.0.8",
     "immutable-access-control": "0.4.7",
     "immutable-app-http-error": "0.1.9",
@@ -50,5 +50,5 @@
   "scripts": {
     "test": "mocha"
   },
-  "version": "0.9.5"
+  "version": "0.9.6"
 }
