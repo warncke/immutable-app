@@ -17,8 +17,8 @@
     "immutable-app-http-error": "0.1.10",
     "immutable-app-http-redirect": "0.1.9",
     "immutable-core": "1.4.24",
-    "immutable-core-controller": "0.6.30",
-    "immutable-core-model": "2.5.3",
+    "immutable-core-controller": "0.6.32",
+    "immutable-core-model": "2.5.4",
     "immutable-require-valid-optional-object": "0.1.9",
     "morgan": "1.8.2",
     "pluralize": "6.0.0",
@@ -50,5 +50,5 @@
   "scripts": {
     "test": "mocha"
   },
-  "version": "0.9.10"
+  "version": "0.9.11"
 }
