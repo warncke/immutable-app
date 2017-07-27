@@ -12,7 +12,7 @@
     </label>
 {{/if}}
 
-<input type="text" id="{{field.id}}" name="{{field.name}}" class="{{#if field.error}}error{{/if}} {{field.property}} {{field.class}}" {{#if field.placeholder}}placeholder="{{field.placeholder}}"{{/if}} {{#if field.pattern}}pattern="{{field.pattern}}"{{/if}} {{#if field.value}}value="{{field.value}}"{{/if}} {{#if field.readonly}}readonly{{/if}} {{#if field.required}}required{{/if}} {{#if field.inputSize}}size="{{field.inputSize}}"{{/if}} />
+<input type="text" id="{{field.id}}" name="{{field.name}}" class="{{#if field.error}}error{{/if}} {{field.property}} {{field.class}}" {{#if field.placeholder}}placeholder="{{field.placeholder}}"{{/if}} {{#if field.pattern}}pattern="{{field.pattern}}"{{/if}} value="{{default field.value ''}}" {{#if field.readonly}}readonly{{/if}} {{#if field.required}}required{{/if}} {{#if field.inputSize}}size="{{field.inputSize}}"{{/if}} />
 
 {{#if field.error}}
 <div class="error">

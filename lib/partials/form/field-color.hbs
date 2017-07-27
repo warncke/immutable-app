@@ -12,7 +12,7 @@
     </label>
 {{/if}}
 
-<input type="color" id="{{field.id}}" name="{{field.name}}" class="{{#if field.error}}error{{/if}} {{field.property}} {{field.class}}" {{#if field.value}}value="{{field.value}}"{{/if}} {{#if field.readonly}}disabled{{/if}} />
+<input type="color" id="{{field.id}}" name="{{field.name}}" class="{{#if field.error}}error{{/if}} {{field.property}} {{field.class}}" value="{{default field.value ''}}" {{#if field.readonly}}disabled{{/if}} />
 
 {{#if field.error}}
 <div class="error">
