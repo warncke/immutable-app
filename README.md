@@ -5,15 +5,22 @@ Immutable App provides a framework built on
 applications.
 
 Immutable App is designed to integrate with
-[immutable-core](https://www.npmjs.com/package/immutable-core)
+[Immutable Core](https://www.npmjs.com/package/immutable-core)
 modules and methods,
-[immutable-core-model](https://www.npmjs.com/package/immutable-core-model)
-[immutable-core-controller](https://www.npmjs.com/package/immutable-core-controller)
-[immutable-app-auth](https://www.npmjs.com/package/immutable-app-auth)
-[immutable-access-control](https://www.npmjs.com/package/immutable-access-control)
+[Immutable Core Model](https://www.npmjs.com/package/immutable-core-model)
+[Immutable Core Controller](https://www.npmjs.com/package/immutable-core-controller)
+[Immutable App Auth](https://www.npmjs.com/package/immutable-app-auth)
+[Immutable Access Control](https://www.npmjs.com/package/immutable-access-control)
 and other components of the immutable ecosystem to provide a robust,
 scalable, and highly secure application development environment built on
 immutable data models.
+
+## Immutable App v0.10 and Immutable Core Model v3
+
+Immutable App v0.10 is required to support the breaking changes that were made
+in Immutable Core Model v3.
+
+Immutable App v0.10 is not compatible with Imutable Core Model v2.
 
 ## Native async/await
 

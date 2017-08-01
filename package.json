@@ -23,7 +23,6 @@
     "morgan": "1.8.2",
     "pluralize": "6.0.0",
     "random-unique-id": "1.0.9",
-    "stack-trace": "0.0.10",
     "stack-utils": "1.0.1",
     "winston": "2.3.1"
   },
@@ -50,5 +49,5 @@
   "scripts": {
     "test": "mocha"
   },
-  "version": "0.9.15"
+  "version": "0.10.0"
 }
