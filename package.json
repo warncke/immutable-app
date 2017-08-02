@@ -9,7 +9,7 @@
     "debug": "2.6.8",
     "deep-freeze": "0.0.1",
     "express": "4.15.3",
-    "express-handlebars-multi": "0.2.5",
+    "express-handlebars-multi": "0.2.6",
     "get-env": "0.5.10",
     "handlebars-helpers": "0.9.6",
     "if-defined": "1.0.9",
@@ -49,5 +49,5 @@
   "scripts": {
     "test": "mocha"
   },
-  "version": "0.10.0"
+  "version": "0.10.1"
 }
