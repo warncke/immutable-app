@@ -1,0 +1,21 @@
+{{#if field.label}}
+    <label for="{{field.id}}" class="{{#if field.error}}error{{/if}}">
+        {{field.label}}
+        {{#if field.description}}
+        <span class="shower">
+            <i class="fa fa-question" aria-hidden="true"></i>
+            <div class="description hide shower-target">
+                {{field.description}}
+            </div>
+        </span>
+        {{/if}}
+    </label>
+{{/if}}
+
+<input type="date" id="{{field.id}}" name="{{field.name}}" class="{{#if field.error}}error{{/if}} {{field.property}} {{field.class}}" {{#if field.placeholder}}placeholder="{{field.placeholder}}"{{/if}} value="{{default field.value ''}}" {{#if field.readonly}}readonly{{/if}} {{#if field.required}}required{{/if}} />
+
+{{#if field.error}}
+<div class="error">
+    {{field.error}}
+</div>
+{{/if}}
