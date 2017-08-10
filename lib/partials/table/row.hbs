@@ -4,7 +4,7 @@
             {{#unless ../noActions}}
                 <td>
                     {{#each ../this.actions}}
-                    <a href="{{href}}" class="action" {{#if target}}target="{{target}}"{{/if}}>{{title}}</a>
+                    <a href="{{href}}" class="action {{action}}" {{#if target}}target="{{target}}"{{/if}}>{{title}}</a>
                     {{/each}}
                 </td>
             {{/unless}}
