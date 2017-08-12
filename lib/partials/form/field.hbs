@@ -1,34 +1,3 @@
 <div class="pure-u-1 ">
-    {{#if field.legend}}
-        {{>form/field-legend}}
-    {{else if field.nested}}
-        {{#if field.array}}
-            {{>form/field-nested-array}}
-        {{/if}}
-    {{else}}
-        {{#eq field.inputType 'text'}}
-            {{>form/field-text}}
-        {{/eq}}
-        {{#eq field.inputType 'textarea'}}
-            {{>form/field-textarea}}
-        {{/eq}}
-        {{#eq field.inputType 'password'}}
-            {{>form/field-password}}
-        {{/eq}}
-        {{#eq field.inputType 'checkbox'}}
-            {{>form/field-checkbox}}
-        {{/eq}}
-        {{#eq field.inputType 'select'}}
-            {{>form/field-select}}
-        {{/eq}}
-        {{#eq field.inputType 'hidden'}}
-            {{>form/field-hidden}}
-        {{/eq}}
-        {{#eq field.inputType 'color'}}
-            {{>form/field-color}}
-        {{/eq}}
-        {{#eq field.inputType 'date'}}
-            {{>form/field-date}}
-        {{/eq}}
-    {{/if}}
+    {{> (formFieldPartial field)}}
 </div>
