@@ -18,7 +18,7 @@
     "immutable-app-http-redirect": "0.1.11",
     "immutable-core": "1.4.28",
     "immutable-core-controller": "0.7.12",
-    "immutable-core-model": "3.0.9",
+    "immutable-core-model": "3.1.0",
     "immutable-require-valid-optional-object": "0.1.11",
     "morgan": "1.8.2",
     "pluralize": "6.0.0",
@@ -33,8 +33,8 @@
     "immutable-database-mariasql": "1.3.21",
     "immutable-http-client": "0.6.10",
     "mocha": "3.5.0",
-    "sinon": "3.2.0",
-    "sinon-chai": "2.12.0"
+    "sinon": "3.2.1",
+    "sinon-chai": "2.13.0"
   },
   "directories": {
     "test": "test"
