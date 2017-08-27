@@ -235,7 +235,7 @@ default versions.
 
 Partials can be used from templates like:
 
-    {{> head}}
+    {{>head}}
 
 Here head is the filename relative to the partials directory without the .hbs
 extension.
@@ -260,7 +260,7 @@ locate it in the app dir with the model/controller.
 
     app.config({ ... })
 
-The config method is to set both global and module configuration variables.
+The config method is used to set both global and module configuration variables.
 
 Each `immutableApp` is a module and an Immutable App can consist of one or more
 modules with each module able to define its own directories, models,
@@ -272,39 +272,120 @@ controllers, routes, express middleware, etc.
 
     app.config({
         assets: {
-            css: [
-                {
-                    href: '/assets/base.css',
-                },
-            ],
-            js: [
-                {
-                    src: '/assets/base.js',
-                },
-            ],
-            scripts: [
-                'console.log("foobar!")',
-            ],
-            styles: [
-                '* {font-family: arial}'
-            ],
+            css: [ ... ],
+            favicon: '...',
+            include: [ ... ],
+            js: [ ... ],
+            meta: [ ... ],
+            scripts: [ ... ],
+            styles: [ ... ],
+            window: { ... }
         }
     })
 
-The assets configuration is used to specify `css` and `js` files that are
-loaded with link and script tags as well as `scripts` and `styles` that are
-javascript and css strings placed directly on the page in script and style
-tags.
+The assets configuration is used to specify resources that will be used to
+render HTML pages by default.
 
-`css` assets can have `href`, `crossorigin` and `integrity` attributes.
+List of assets specified in different modules will be concatenated together in
+the order that the modules are loaded.
 
-`js` assets can have `src`, `integrity`, `crossorigin`, `async` and `defer`
-attributes.
+When a template is rendered any assets specified in the template data will be
+appended to the global assets.
 
 Immutable App uses [Font Awesome 4.7.0](http://fontawesome.io/icons/)
 [Pure CSS 0.6.2](https://purecss.io/) and [jQuery 3.1.1](http://jquery.com/)
 served by [jsDelivr](https://www.jsdelivr.com/) along with local css and js
 by default.
+
+##### Using assets in templates
+
+    {{#each js}}
+        <script src="{{{src}}}" ...
+    {{/each}}
+
+Asset variables (e.g. css, js) are set at the root level of the template data
+structure.
+
+By default all assets except `include` are rendered using the `head.hbs`
+template file in `lib/partials`.
+
+##### css
+
+    app.config({
+        assets: {
+            css: [
+                {
+                    href: '/assets/base.css'
+                }
+            ]
+        }
+    })
+
+`css` assets are rendered as link tags with the rel="stylesheet" attribute.
+
+The attributes `href`, `crossorigin`, `integrity` and `media` are supported
+by the default template.
+
+##### favicon
+
+    app.config({
+        assets: {
+            favicon: '/my-favicon.ico'
+        }
+    })
+
+`favicon` is used to specify the `href` of the favicon which is set with a link
+tag by default. The href can be either a regular or a data URI. An empty
+favicon data URI is set by default.
+
+##### include
+
+    app.config({
+        assets: {
+            include: [
+                'my-template',
+                'another/custom-template'
+            ]
+        }
+    })
+
+`include` specifies a list of template partial names that will be rendered on
+the page. These templates will be rendered at the end of the body by default.
+
+##### js
+
+    app.config({
+        assets: {
+            js: [
+                {
+                    src: '/assets/base.js',
+                },
+            ]
+        }
+    })
+
+`js` assets are rendered as script tags. The `src`, `integrity`, `crossorigin`,
+`async` and `defer` attributes are supported by default.
+
+##### meta
+
+`meta` assets are rendered as meta tags. The `charset`, `content`, `httpEquiv`
+and `name` attributes are supported by default.
+
+##### window
+
+    app.config({
+        assets: {
+            window: {
+                foo: {
+                    bar: true
+                }
+            }
+        }
+    })
+
+`window` must be an object with properties that will be set on the window
+object in the browser javascript context. All values will be JSON encoded.
 
 #### database
 

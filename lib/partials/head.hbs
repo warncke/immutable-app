@@ -1,12 +1,17 @@
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+{{#if favicon}}
+    <link href="{{{favicon}}}" rel="icon" type="image/x-icon" />
+{{/if}}
+
+{{#each meta}}
+    <meta {{#if charset}}charset="{{{charset}}}"{{/if}} {{#if content}}content="{{{content}}}"{{/if}} {{#if httpEquiv}}http-equiv="{{{httpEquiv}}}"{{/if}} {{#if name}}name="{{{name}}}"{{/if}} />
+{{/each}}
 
 {{#each css}}
-    <link rel="stylesheet" href="{{{href}}}" {{#if integrity}}integrity="{{{integrity}}}"{{/if}} {{#if crossorigin}}crossorigin="{{crossorigin}}"{{/if}} />
+    <link rel="stylesheet" href="{{{href}}}" {{#if integrity}}integrity="{{{integrity}}}"{{/if}} {{#if crossorigin}}crossorigin="{{{crossorigin}}}"{{/if}} {{#if media}}media="{{{media}}}"{{/if}} />
 {{/each}}
 
 {{#each js}}
-    <script src="{{{src}}}" {{#if integrity}}integrity="{{{integrity}}}"{{/if}} {{#if crossorigin}}crossorigin="{{crossorigin}}"{{/if}} {{#if async}}async{{/if}} {{#if defer}}defer{{/if}}></script>
+    <script src="{{{src}}}" {{#if integrity}}integrity="{{{integrity}}}"{{/if}} {{#if crossorigin}}crossorigin="{{{crossorigin}}}"{{/if}} {{#if async}}async{{/if}} {{#if defer}}defer{{/if}}></script>
 {{/each}}
 
 {{#each styles}}
@@ -16,3 +21,11 @@
 {{#each scripts}}
     <script>{{{this}}}</script>
 {{/each}}
+
+{{#if window}}
+    <script>
+    {{#each window}}
+        window.{{{@key}}} = {{{JSONstringify .}}}
+    {{/each}}
+    </script>
+{{/if}}
