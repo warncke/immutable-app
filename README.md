@@ -106,6 +106,9 @@ specifications.
       +-- partials
       |     +-- head.hbs
       |
+      +-- services
+      |     +-- foo.service.js
+      |
       +-- views
       |     +-- instance.hbs
       |
@@ -242,6 +245,25 @@ extension.
 
 The `head` partial is included with Immutable App and it renders css link tags,
 script, and style tags, and other common head elements.
+
+#### services
+
+The services directory can contain one or more
+[Immutable Core Services](https://www.npmjs.com/package/immutable-core-service).
+
+Each service must be named like <Service_Name>.service.js sub as
+`foo.service.js` for a service named `foo`.
+
+Service files must export a plain object that can be passed to
+`new ImmutableCoreService`.
+
+Like controllers and models, services defined in one module can be extended
+and overriden by services with the same name defined in other modules or in the
+main application.
+
+All Immutable Core Services will be initialized prior to the app starting. This
+includes any services that are defined outside of the services directory and
+required directly elsewhere.
 
 #### views
 
@@ -650,6 +672,8 @@ in your app.js before requiring any modules.
 * Immutable Core Model
   * Immutable Access Control
   * Immutable Core
+* Immutable Core Service
+  * Immutable Core Model
 
 #### Immutable App Auth
 
@@ -750,6 +774,15 @@ particular model class.
 Multiple Immutable Core Model Views can be applied to the same record at the
 same time so formatting models through the composition of single purpose
 generic Model View components is encouraged.
+
+#### Immutable Core Service
+
+Immutable Core Services provide a mechanism to initialize and periodically
+reinitialize shared global data.
+
+All registered services are initialized prior to the app starting so the
+data that the service maintains will always be available when the app is
+running.
 
 #### Immutable Core
 

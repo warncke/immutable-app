@@ -19,6 +19,7 @@
     "immutable-core": "2.2.2",
     "immutable-core-controller": "0.8.11",
     "immutable-core-model": "3.3.12",
+    "immutable-core-service": "0.2.1",
     "immutable-require-valid-optional-object": "0.1.13",
     "morgan": "1.8.2",
     "pluralize": "7.0.0",
@@ -49,5 +50,5 @@
   "scripts": {
     "test": "mocha"
   },
-  "version": "0.13.7"
+  "version": "0.14.0"
 }
