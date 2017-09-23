@@ -2,7 +2,7 @@
   "author": "Ersun Warncke <ersun.warncke@gmail.com>",
   "dependencies": {
     "bluebird": "3.5.0",
-    "body-parser": "1.18.1",
+    "body-parser": "1.18.2",
     "callsites": "2.0.0",
     "change-case": "3.0.1",
     "cookie-parser": "1.4.3",
@@ -17,8 +17,8 @@
     "immutable-app-http-error": "0.1.15",
     "immutable-app-http-redirect": "0.1.14",
     "immutable-core": "2.2.4",
-    "immutable-core-controller": "0.8.16",
-    "immutable-core-model": "3.4.0",
+    "immutable-core-controller": "0.9.0",
+    "immutable-core-model": "3.4.1",
     "immutable-core-service": "0.2.5",
     "immutable-require-valid-optional-object": "0.1.14",
     "morgan": "1.8.2",
@@ -50,5 +50,5 @@
   "scripts": {
     "test": "mocha"
   },
-  "version": "0.14.3"
+  "version": "0.14.4"
 }
