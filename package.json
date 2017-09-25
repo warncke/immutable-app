@@ -8,7 +8,7 @@
     "cookie-parser": "1.4.3",
     "debug": "3.0.1",
     "deep-freeze": "0.0.1",
-    "express": "4.15.4",
+    "express": "4.15.5",
     "express-handlebars-multi": "0.2.17",
     "get-env": "0.5.10",
     "handlebars-helpers": "0.9.8",
@@ -50,5 +50,5 @@
   "scripts": {
     "test": "mocha"
   },
-  "version": "0.15.0"
+  "version": "0.15.1"
 }
