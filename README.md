@@ -85,10 +85,10 @@ specifications.
       |     +-- foo
       |     |     +-- foo.controller.js
       |     |     +-- foo.model.js
-            |
-            +-- bar
-            |     +-- bam.hbs
-            |     +-- index.hbs
+      |     |
+      |     +-- bar
+      |     |     +-- bam.hbs
+      |     |     +-- index.hbs
       |     |
       |     +-- index.hbs
       |     +-- index.authenticated.hbs
