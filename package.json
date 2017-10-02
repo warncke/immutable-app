@@ -16,11 +16,11 @@
     "immutable-access-control": "0.5.8",
     "immutable-app-http-error": "0.1.15",
     "immutable-app-http-redirect": "0.1.14",
-    "immutable-core": "2.2.6",
-    "immutable-core-component": "0.0.5",
-    "immutable-core-controller": "0.9.8",
-    "immutable-core-model": "3.4.4",
-    "immutable-core-service": "0.2.8",
+    "immutable-core": "2.2.7",
+    "immutable-core-component": "0.0.6",
+    "immutable-core-controller": "0.9.10",
+    "immutable-core-model": "3.4.6",
+    "immutable-core-service": "0.2.9",
     "immutable-require-valid-optional-object": "0.1.14",
     "morgan": "1.9.0",
     "pluralize": "7.0.0",
@@ -51,5 +51,5 @@
   "scripts": {
     "test": "mocha"
   },
-  "version": "0.15.7"
+  "version": "0.15.8"
 }
