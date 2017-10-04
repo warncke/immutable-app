@@ -9,11 +9,11 @@
     "debug": "3.1.0",
     "deep-freeze": "0.0.1",
     "express": "4.16.1",
-    "express-handlebars-multi": "0.2.18",
+    "express-handlebars-multi": "0.2.19",
     "get-env": "0.5.10",
     "handlebars-helpers": "0.9.8",
-    "if-defined": "1.0.14",
-    "immutable-access-control": "0.5.8",
+    "if-defined": "1.0.15",
+    "immutable-access-control": "0.5.10",
     "immutable-app-http-error": "0.1.15",
     "immutable-app-http-redirect": "0.1.14",
     "immutable-core": "2.2.7",
@@ -26,7 +26,7 @@
     "pluralize": "7.0.0",
     "random-unique-id": "1.0.14",
     "stack-utils": "1.0.1",
-    "winston": "2.3.1"
+    "winston": "2.4.0"
   },
   "description": "Immutable app",
   "devDependencies": {
@@ -34,8 +34,8 @@
     "chai-as-promised": "7.1.1",
     "immutable-database-mariasql": "1.3.26",
     "immutable-http-client": "0.6.19",
-    "mocha": "3.5.3",
-    "sinon": "4.0.0",
+    "mocha": "4.0.0",
+    "sinon": "4.0.1",
     "sinon-chai": "2.14.0"
   },
   "directories": {
@@ -49,7 +49,7 @@
   "name": "immutable-app",
   "repository": "warncke/immutable-app",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --exit"
   },
-  "version": "0.15.8"
+  "version": "0.15.9"
 }
