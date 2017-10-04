@@ -1,7 +1,7 @@
 {
   "author": "Ersun Warncke <ersun.warncke@gmail.com>",
   "dependencies": {
-    "bluebird": "3.5.0",
+    "bluebird": "3.5.1",
     "body-parser": "1.18.2",
     "callsites": "2.0.0",
     "change-case": "3.0.1",
@@ -9,22 +9,22 @@
     "debug": "3.1.0",
     "deep-freeze": "0.0.1",
     "express": "4.16.1",
-    "express-handlebars-multi": "0.2.19",
+    "express-handlebars-multi": "0.2.21",
     "get-env": "0.5.10",
     "handlebars-helpers": "0.9.8",
     "if-defined": "1.0.15",
-    "immutable-access-control": "0.5.10",
-    "immutable-app-http-error": "0.1.15",
-    "immutable-app-http-redirect": "0.1.14",
-    "immutable-core": "2.2.7",
-    "immutable-core-component": "0.0.6",
-    "immutable-core-controller": "0.9.10",
-    "immutable-core-model": "3.4.6",
-    "immutable-core-service": "0.2.9",
-    "immutable-require-valid-optional-object": "0.1.14",
+    "immutable-access-control": "0.5.11",
+    "immutable-app-http-error": "0.1.16",
+    "immutable-app-http-redirect": "0.1.15",
+    "immutable-core": "2.2.11",
+    "immutable-core-component": "0.0.12",
+    "immutable-core-controller": "0.9.17",
+    "immutable-core-model": "3.4.9",
+    "immutable-core-service": "0.2.13",
+    "immutable-require-valid-optional-object": "0.1.15",
     "morgan": "1.9.0",
     "pluralize": "7.0.0",
-    "random-unique-id": "1.0.14",
+    "random-unique-id": "1.0.15",
     "stack-utils": "1.0.1",
     "winston": "2.4.0"
   },
@@ -32,8 +32,8 @@
   "devDependencies": {
     "chai": "4.1.2",
     "chai-as-promised": "7.1.1",
-    "immutable-database-mariasql": "1.3.26",
-    "immutable-http-client": "0.6.19",
+    "immutable-database-mariasql": "1.3.30",
+    "immutable-http-client": "0.6.22",
     "mocha": "4.0.0",
     "sinon": "4.0.1",
     "sinon-chai": "2.14.0"
@@ -51,5 +51,5 @@
   "scripts": {
     "test": "mocha --exit"
   },
-  "version": "0.15.9"
+  "version": "0.15.10"
 }
