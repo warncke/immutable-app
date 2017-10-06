@@ -91,10 +91,6 @@ a.action {
     display: inline-block;
 }
 
-.description {
-    font-style: italic;
-}
-
 .hide {
     display: none;
 }
