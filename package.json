@@ -9,11 +9,11 @@
     "debug": "3.1.0",
     "deep-freeze": "0.0.1",
     "express": "4.16.1",
-    "express-handlebars-multi": "0.2.21",
+    "express-handlebars-multi": "0.2.22",
     "get-env": "0.5.10",
     "handlebars-helpers": "0.9.8",
-    "if-defined": "1.0.15",
-    "immutable-access-control": "0.5.11",
+    "if-defined": "1.0.16",
+    "immutable-access-control": "0.5.12",
     "immutable-app-http-error": "0.1.16",
     "immutable-app-http-redirect": "0.1.15",
     "immutable-core": "2.2.11",
@@ -34,7 +34,7 @@
     "chai-as-promised": "7.1.1",
     "immutable-database-mariasql": "1.3.30",
     "immutable-http-client": "0.6.22",
-    "mocha": "4.0.0",
+    "mocha": "4.0.1",
     "sinon": "4.0.1",
     "sinon-chai": "2.14.0"
   },
@@ -51,5 +51,5 @@
   "scripts": {
     "test": "mocha --exit"
   },
-  "version": "0.15.11"
+  "version": "0.15.12"
 }
