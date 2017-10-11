@@ -8,7 +8,7 @@
     "cookie-parser": "1.4.3",
     "debug": "3.1.0",
     "deep-freeze": "0.0.1",
-    "express": "4.16.1",
+    "express": "4.16.2",
     "express-handlebars-multi": "0.2.23",
     "get-env": "0.5.10",
     "handlebars-helpers": "0.9.8",
@@ -17,7 +17,7 @@
     "immutable-app-http-error": "0.1.17",
     "immutable-app-http-redirect": "0.1.16",
     "immutable-core": "2.2.13",
-    "immutable-core-component": "0.0.15",
+    "immutable-core-component": "0.0.17",
     "immutable-core-controller": "0.9.19",
     "immutable-core-model": "3.4.13",
     "immutable-core-service": "0.2.16",
@@ -51,5 +51,5 @@
   "scripts": {
     "test": "mocha --exit"
   },
-  "version": "0.15.13"
+  "version": "0.15.14"
 }
