@@ -9,7 +9,7 @@
     "debug": "3.1.0",
     "deep-freeze": "0.0.1",
     "express": "4.16.2",
-    "express-handlebars-multi": "0.2.23",
+    "express-handlebars-multi": "0.2.24",
     "get-env": "0.5.10",
     "handlebars-helpers": "0.9.8",
     "if-defined": "1.0.16",
@@ -51,5 +51,5 @@
   "scripts": {
     "test": "mocha --exit"
   },
-  "version": "0.15.20"
+  "version": "0.15.21"
 }
