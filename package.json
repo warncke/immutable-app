@@ -19,7 +19,7 @@
     "immutable-core": "2.2.22",
     "immutable-core-component": "0.0.26",
     "immutable-core-controller": "0.9.35",
-    "immutable-core-model": "3.5.7",
+    "immutable-core-model": "3.5.8",
     "immutable-core-service": "0.2.24",
     "immutable-require-valid-optional-object": "0.1.16",
     "morgan": "1.9.0",
@@ -51,5 +51,5 @@
   "scripts": {
     "test": "mocha --exit"
   },
-  "version": "0.15.26"
+  "version": "0.15.27"
 }
