@@ -1,19 +1,20 @@
 # immutable-app
 
-Immutable App provides a framework built on
-[express](https://www.npmjs.com/package/express) for developing web
-applications.
+Immutable App provides a framework for developing web applications and APIs
+built on immutable data.
 
-Immutable App is designed to integrate with
-[Immutable Core](https://www.npmjs.com/package/immutable-core)
-modules and methods,
-[Immutable Core Model](https://www.npmjs.com/package/immutable-core-model)
-[Immutable Core Controller](https://www.npmjs.com/package/immutable-core-controller)
-[Immutable App Auth](https://www.npmjs.com/package/immutable-app-auth)
-[Immutable Access Control](https://www.npmjs.com/package/immutable-access-control)
-and other components of the immutable ecosystem to provide a robust,
-scalable, and highly secure application development environment built on
-immutable data models.
+The Immutable App ecosystem includes several other modules that will typically
+be used together including:
+
+* [Immutable Core](https://www.npmjs.com/package/immutable-core)
+* [Immutable Core Controller](https://www.npmjs.com/package/immutable-core-controller)
+* [Immutable Core Model](https://www.npmjs.com/package/immutable-core-model)
+* [Immutable Core Model View](https://www.npmjs.com/package/immutable-core-model-view)
+* [Immutable Core Service](https://www.npmjs.com/package/immutable-core-service)
+* [Immutable Access Control](https://www.npmjs.com/package/immutable-access-control
+* [Immutable App Auth](https://www.npmjs.com/package/immutable-app-auth)
+* [Immutable App Component](https://www.npmjs.com/package/immutable-app-component)
+* [Immutable App Task](https://www.npmjs.com/package/immutable-app-task)
 
 ## Immutable App v0.10 and Immutable Core Model v3
 
@@ -43,10 +44,6 @@ support.
     })
 
     app.start()
-
-Immutable App is an "opinionated" framework in the sense that it comes with
-all of the necessary components for building a web based application or API
-fully integrated and ready to deploy.
 
 ## Apps and APIs
 
@@ -97,6 +94,10 @@ specifications.
       |     +-- base.css
       |     +-- base.js
       |
+      +-- components
+      |     +-- foo
+      |           ...
+      |
       +-- helpers
       |     +-- my-helper.js
       |
@@ -108,6 +109,9 @@ specifications.
       |
       +-- services
       |     +-- foo.service.js
+      |
+      +-- tasks
+      |     +-- foo.task.js
       |
       +-- views
       |     +-- instance.hbs
@@ -121,10 +125,14 @@ created for the app.
 
 Files can be either controllers, models, or templates.
 
+##### Components
+
+Folders containing Immutable App Components.
+
 ##### Controllers
 
-Controllers must be named like <Name>.controller.js but the name is not used
-for anything.
+Controllers must be named like <controller-name>.controller.js but the name is
+not used for anything.
 
 Each controller file must export a plain object that can be passed to
 `new ImmutableCoreController`.
@@ -156,6 +164,13 @@ the same relative dir position.
 Controller and model specifications defined for the same relative directory in
 the app will be merged together in the order that module(s) are required in
 the app.
+
+##### Tasks
+
+Tasks must be named like <task-name>.task.js use dashes for spaces.
+
+Each task file must export a plain object that can be passed to
+`new ImmutableCoreTask`.
 
 ##### Templates
 
