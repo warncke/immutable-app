@@ -11,7 +11,7 @@ be used together including:
 * [Immutable Core Model](https://www.npmjs.com/package/immutable-core-model)
 * [Immutable Core Model View](https://www.npmjs.com/package/immutable-core-model-view)
 * [Immutable Core Service](https://www.npmjs.com/package/immutable-core-service)
-* [Immutable Access Control](https://www.npmjs.com/package/immutable-access-control
+* [Immutable Access Control](https://www.npmjs.com/package/immutable-access-control)
 * [Immutable App Auth](https://www.npmjs.com/package/immutable-app-auth)
 * [Immutable App Component](https://www.npmjs.com/package/immutable-app-component)
 * [Immutable App Task](https://www.npmjs.com/package/immutable-app-task)
