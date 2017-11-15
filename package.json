@@ -18,7 +18,7 @@
     "immutable-app-http-redirect": "0.1.16",
     "immutable-core": "2.2.26",
     "immutable-core-component": "0.0.30",
-    "immutable-core-controller": "0.10.7",
+    "immutable-core-controller": "0.10.9",
     "immutable-core-model": "3.5.15",
     "immutable-core-service": "0.2.27",
     "immutable-require-valid-optional-object": "0.1.16",
@@ -51,5 +51,5 @@
   "scripts": {
     "test": "mocha --exit"
   },
-  "version": "0.15.35"
+  "version": "0.15.36"
 }
