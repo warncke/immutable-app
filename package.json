@@ -16,7 +16,7 @@
     "immutable-access-control": "0.5.13",
     "immutable-app-http-error": "0.1.17",
     "immutable-app-http-redirect": "0.1.16",
-    "immutable-core": "2.2.27",
+    "immutable-core": "2.2.28",
     "immutable-core-component": "0.0.31",
     "immutable-core-controller": "0.10.14",
     "immutable-core-model": "3.5.18",
@@ -51,5 +51,5 @@
   "scripts": {
     "test": "mocha --exit"
   },
-  "version": "0.15.39"
+  "version": "0.15.40"
 }
