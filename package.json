@@ -24,7 +24,7 @@
     "immutable-require-valid-optional-object": "0.1.16",
     "morgan": "1.9.0",
     "pluralize": "7.0.0",
-    "random-unique-id": "1.0.21",
+    "random-unique-id": "1.0.22",
     "stack-utils": "1.0.1",
     "winston": "2.4.0"
   },
@@ -51,5 +51,5 @@
   "scripts": {
     "test": "mocha --exit"
   },
-  "version": "0.15.46"
+  "version": "0.15.47"
 }
