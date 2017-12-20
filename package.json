@@ -16,11 +16,11 @@
     "immutable-access-control": "0.5.13",
     "immutable-app-http-error": "0.1.17",
     "immutable-app-http-redirect": "0.1.16",
-    "immutable-core": "2.2.34",
-    "immutable-core-component": "0.0.39",
-    "immutable-core-controller": "0.10.21",
-    "immutable-core-model": "3.5.25",
-    "immutable-core-service": "0.2.34",
+    "immutable-core": "2.2.36",
+    "immutable-core-component": "0.0.40",
+    "immutable-core-controller": "0.10.23",
+    "immutable-core-model": "3.5.27",
+    "immutable-core-service": "0.2.36",
     "immutable-require-valid-optional-object": "0.1.16",
     "morgan": "1.9.0",
     "pluralize": "7.0.0",
@@ -32,8 +32,8 @@
   "devDependencies": {
     "chai": "4.1.2",
     "chai-as-promised": "7.1.1",
-    "immutable-database-mariasql": "1.3.43",
-    "immutable-http-client": "0.6.32",
+    "immutable-database-mariasql": "1.3.45",
+    "immutable-http-client": "0.6.33",
     "mocha": "4.0.1",
     "sinon": "4.1.3",
     "sinon-chai": "2.14.0"
@@ -51,5 +51,5 @@
   "scripts": {
     "test": "mocha --exit"
   },
-  "version": "0.15.47"
+  "version": "0.15.48"
 }
