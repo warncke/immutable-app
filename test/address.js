@@ -2,7 +2,6 @@
 
 const ImmutableAccessControl = require('immutable-access-control')
 const ImmutableCoreModel = require('immutable-core-model')
-const ImmutableDatabaseMariaSQL = require('immutable-database-mariasql')
 const immutableApp = require('../lib/immutable-app')
 const chai = require('chai')
 const chaiAsPromised = require('chai-as-promised')
@@ -19,8 +18,7 @@ const dbUser = process.env.DB_USER || 'root'
 
 // use the same params for all connections
 const connectionParams = {
-    charset: 'utf8',
-    db: dbName,
+    database: dbName,
     host: dbHost,
     password: dbPass,
     user: dbUser,
@@ -28,10 +26,17 @@ const connectionParams = {
 
 describe('immutable-app - address', function () {
 
-    var accessControl, app
+    var accessControl, app, mysql
 
-    // create database connection to use for testing
-    var database = new ImmutableDatabaseMariaSQL(connectionParams)
+    before(async function () {
+        // create database connection to use for testing
+        mysql = await ImmutableCoreModel.createMysqlConnection(connectionParams)
+    })
+
+    after(async function () {
+        await mysql.close()
+        await app.stop()
+    })
 
     beforeEach(async function () {
         // reset immutable modules
@@ -43,7 +48,7 @@ describe('immutable-app - address', function () {
         // disable strict mode
         accessControl.strict = false
         // drop any test tables
-        await database.query('DROP TABLE IF EXISTS address')
+        await mysql.query('DROP TABLE IF EXISTS address')
         // reset global app config
         await immutableApp.reset()
         // create new app instance
@@ -51,8 +56,8 @@ describe('immutable-app - address', function () {
         // set configuration for testing
         app.config({
             // set default database
-            database: {
-                default: database,
+            mysql: {
+                default: mysql,
             },
             // do not exit on listen errors
             exit: false,
