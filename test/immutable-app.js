@@ -14,8 +14,8 @@ const assert = chai.assert
 
 const dbHost = process.env.DB_HOST || 'localhost'
 const dbName = process.env.DB_NAME || 'test'
-const dbPass = process.env.DB_PASS || ''
-const dbUser = process.env.DB_USER || 'root'
+const dbPass = process.env.DB_PASS || 'test'
+const dbUser = process.env.DB_USER || 'test'
 
 // use the same params for all connections
 const connectionParams = {
@@ -35,7 +35,7 @@ describe('immutable-app', function () {
     })
 
     after(async function () {
-        await mysql.close()
+        await mysql.end()
         await app.stop()
     })
 
@@ -105,49 +105,28 @@ describe('immutable-app', function () {
         assert(processExitStub.calledOnce)
     })
 
-    it('should serve templates with default controller', async function () {
-        try {
-            // start server
-            await app.start()
-            // get index page
-            var res = await httpClient.get('http://localhost:7777/')
-            // check response
-            assert.strictEqual(res.statusCode, 200)
-            assert.strictEqual(res.body, '<h1>Hello World</h1>')
-            // get foo index page
-            var res = await httpClient.get('http://localhost:7777/foo')
-            // check response
-            assert.strictEqual(res.statusCode, 200)
-            // get foo index page
-            var res = await httpClient.get('http://localhost:7777/foo/bar')
-            // check response
-            assert.strictEqual(res.statusCode, 200)
-        }
-        catch (err) {
-            assert.ifError(err)
-        }
-    })
-
     it('should create new foo instance', async function () {
         try {
             // start server
             await app.start()
             // get foo index page
-            var res = await httpClient.post('http://localhost:7777/foo/', {
-                body: {
+            var res = await httpClient.fetch('http://localhost:7777/foo/', {
+                body: JSON.stringify({
                     foo: {foo: 'bar'}
+                }),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
                 },
-                qs: {
-                    json: true,
-                },
+                method: 'post',
             })
         }
         catch (err) {
             assert.ifError(err)
         }
         // check response
-        assert.strictEqual(res.statusCode, 200)
-        assert.deepEqual(res.body.data, {foo: 'bar'})
+        assert.strictEqual(res.status, 200)
+        assert.deepEqual((await res.json()).data, { foo: 'bar' })
     })
 
 })

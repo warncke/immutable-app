@@ -14,8 +14,8 @@ const assert = chai.assert
 
 const dbHost = process.env.DB_HOST || 'localhost'
 const dbName = process.env.DB_NAME || 'test'
-const dbPass = process.env.DB_PASS || ''
-const dbUser = process.env.DB_USER || 'root'
+const dbPass = process.env.DB_PASS || 'test'
+const dbUser = process.env.DB_USER || 'test'
 
 // use the same params for all connections
 const connectionParams = {
@@ -35,7 +35,7 @@ describe('immutable-app - access control', function () {
     })
 
     after(async function () {
-        await mysql.close()
+        await mysql.end()
         await app.stop()
     })
 
@@ -76,38 +76,38 @@ describe('immutable-app - access control', function () {
 
     it('should allow access by default', async function () {
         try {
-            var res = await httpClient.get('http://localhost:7777/foo/')
+            var res = await httpClient.fetch('http://localhost:7777/foo/')
         }
         catch (err) {
             assert.ifError(err)
         }
         // check response
-        assert.strictEqual(res.statusCode, 200)
+        assert.strictEqual(res.status, 200)
     })
 
     it('should deny access to all', async function () {
         try {
             accessControl.setRule(['all', 'route:0'])
-            var res = await httpClient.get('http://localhost:7777/foo/')
+            var res = await httpClient.fetch('http://localhost:7777/foo/')
         }
         catch (err) {
             assert.ifError(err)
         }
         // check response
-        assert.strictEqual(res.statusCode, 403)
+        assert.strictEqual(res.status, 403)
     })
 
     it('should allow access to specific', async function () {
         try {
             accessControl.setRule(['all', 'route:0'])
             accessControl.setRule(['all', 'route:/foo/:get:1'])
-            var res = await httpClient.get('http://localhost:7777/foo/')
+            var res = await httpClient.fetch('http://localhost:7777/foo/')
         }
         catch (err) {
             assert.ifError(err)
         }
         // check response
-        assert.strictEqual(res.statusCode, 200)
+        assert.strictEqual(res.status, 200)
     })
 
 })

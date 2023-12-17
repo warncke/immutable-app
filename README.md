@@ -12,58 +12,34 @@ be used together including:
 * [Immutable Core Model View](https://www.npmjs.com/package/immutable-core-model-view)
 * [Immutable Core Service](https://www.npmjs.com/package/immutable-core-service)
 * [Immutable Access Control](https://www.npmjs.com/package/immutable-access-control)
-* [Immutable App Auth](https://www.npmjs.com/package/immutable-app-auth)
-* [Immutable App Component](https://www.npmjs.com/package/immutable-app-component)
-* [Immutable App Task](https://www.npmjs.com/package/immutable-app-task)
 
-## Immutable App v0.16 and Immutable Core Model v4
+## Immutable App v0.17
 
-Immutable App v0.16 is required to support the breaking changes that were made
-in Immutable Core Model v4.
+Immutable App v0.17 removes support for server side rendering and focuses
+exclusively on providing APIs.
 
-Immutable App v0.16 is not compatible with Imutable Core Model v3.
+!!! Immutable APP DOES NOT CURRENTLY PERFORM ANY ACCESS CONTROL ON REQUESTS !!!
 
-## Native async/await
-
-Immutable App requires Node.js v7.6.0 or greater with native async/await
-support.
+Immutable App Auth relied on server side rendering to work and so it was
+removed. It will be redone at a later time when the front-end dev stack is
+complete.
 
 ## A simple Immutable App
 
-    const ImmutableDatabaseMariaSQL = require('immutable-database-mariasql')
+    const ImmutableCoreModel = require('immutable-core-model')
     const immutableApp = require('immutable-app')
 
-    const database = new ImmutableDatabaseMariaSQL(...)
+    const mysql = await ImmutableCoreModel.createMysqlConnection(connectionParams)
 
     var app = immutableApp('my-app')
 
     app.config({
         database: {
-            default: database,
+            default: mysql,
         }
     })
 
-    app.start()
-
-## Apps and APIs
-
-Immutable Apps built using Immutable Models and Controllers are designed to
-serve both HTML web apps and RESTful APIs using the same controllers and for
-the most part the same routes.
-
-Immutable App will detect whether or not a JSON response is requested.
-
-If the HTTP `Accept` header contains `json` or the `X-Requested-With` header is
-set to `XMLHttpRequest` then JSON will be returned unless the `json` query
-param is set to `0` or `false`.
-
-Setting the `json` query param to `1` or `true` will also result in JSON being
-returned.
-
-Otherwise an HTML page will be returned.
-
-Immutable App uses [handlebars](http://handlebarsjs.com/) templates to render
-HTML pages.
+    await app.start()
 
 ## Conventions
 
@@ -83,38 +59,11 @@ specifications.
       |     |     +-- foo.controller.js
       |     |     +-- foo.model.js
       |     |
-      |     +-- bar
-      |     |     +-- bam.hbs
-      |     |     +-- index.hbs
-      |     |
-      |     +-- index.hbs
-      |     +-- index.authenticated.hbs
       |
-      +-- assets
-      |     +-- base.css
-      |     +-- base.js
-      |
-      +-- components
-      |     +-- foo
-      |           ...
-      |
-      +-- helpers
-      |     +-- my-helper.js
-      |
-      +-- layouts
-      |     +-- main.hbs
-      |
-      +-- partials
-      |     +-- head.hbs
       |
       +-- services
       |     +-- foo.service.js
       |
-      +-- tasks
-      |     +-- foo.task.js
-      |
-      +-- views
-      |     +-- instance.hbs
       |
       +-- app.js
 
@@ -123,11 +72,7 @@ specifications.
 The files and folders in the app directory determine the routes that will be
 created for the app.
 
-Files can be either controllers, models, or templates.
-
-##### Components
-
-Folders containing Immutable App Components.
+Files can be either controllers or models.
 
 ##### Controllers
 
@@ -165,102 +110,6 @@ Controller and model specifications defined for the same relative directory in
 the app will be merged together in the order that module(s) are required in
 the app.
 
-##### Tasks
-
-Tasks must be named like <task-name>.task.js use dashes for spaces.
-
-Each task file must export a plain object that can be passed to
-`new ImmutableCoreTask`.
-
-##### Templates
-
-Template files must end with the `hbs` extension.
-
-If a template file is not used by any controller then a default controller that
-serves the template for `get` requests will be created.
-
-Template files served by default controllers will be served under the path that
-corresponds to their directory and name.
-
-In this example `bam.hbs` would be served from `/bar/bam`.
-
-Template files named `index` will be served from the `/` path. For instance:
-`bar/index.hbs` would be served from `/bar/`.
-
-Template files may contain a role name that follows and is separated from the
-template name by a dot.
-
-In this example `index.authenticated.hbs` would be served to logged in users on
-the `/` path while `index.hbs` would be served to logged out users on the same
-path.
-
-Dots should not be used in template names except to specify role specific
-templates.
-
-#### assets
-
-The assets directory is used for serving static files such as javascript and
-css. The assets directory is mounted using `express.static`.
-
-#### helpers
-
-Files with a `.js` extension in the helpers directory will be required and used
-to provide handlebars helper functions.
-
-Each file must export an object that maps the name of the helper to the helper
-function.
-
-By default Immutable App loads
-[handlebars-helpers](https://www.npmjs.com/package/handlebars-helpers).
-
-Any helpers in the helpers directory will override handlebars-helpers with the
-same name.
-
-#### layouts
-
-Layouts are templates that wrap route specific templates and are generally used
-for common headers and footers that are shared between multiple pages.
-
-Immutable App is configured to use `main.hbs` and the default layout.
-
-Immutable App provides its own `main.hbs` layout but if a main.hbs file exists
-in an app's layouts directory the app version will override the default
-version.
-
-A simple layout looks like:
-
-    <!DOCTYPE html>
-
-    <html>
-        <body>
-            {{{body}}}
-        </body>
-    </html>
-
-`{{{body}}}` is replaced with the content from whatever template is being
-rendered.
-
-#### partials
-
-Partials are template files that are included from other templates and
-typically shared between templates.
-
-Immutable App comes with several partials defined for rendering tables, forms,
-and other common elements.
-
-Like layouts any app local partials with the same file name will override the
-default versions.
-
-Partials can be used from templates like:
-
-    {{>head}}
-
-Here head is the filename relative to the partials directory without the .hbs
-extension.
-
-The `head` partial is included with Immutable App and it renders css link tags,
-script, and style tags, and other common head elements.
-
 #### services
 
 The services directory can contain one or more
@@ -280,17 +129,6 @@ All Immutable Core Services will be initialized prior to the app starting. This
 includes any services that are defined outside of the services directory and
 required directly elsewhere.
 
-#### views
-
-The views directory can be used as an alternative or in addition to the app
-directory for storing templates.
-
-Immutable App uses the views directory to store templates such as `list` and
-`instance` that are generic templates that can be used for any model.
-
-If a template is specific to one model/controller it is probably better to
-locate it in the app dir with the model/controller.
-
 ## Configuration
 
     var app = immutableApp('my-app')
@@ -304,125 +142,6 @@ modules with each module able to define its own directories, models,
 controllers, routes, express middleware, etc.
 
 ### Global configuration
-
-#### assets
-
-    app.config({
-        assets: {
-            css: [ ... ],
-            favicon: '...',
-            include: [ ... ],
-            js: [ ... ],
-            meta: [ ... ],
-            scripts: [ ... ],
-            styles: [ ... ],
-            window: { ... }
-        }
-    })
-
-The assets configuration is used to specify resources that will be used to
-render HTML pages by default.
-
-List of assets specified in different modules will be concatenated together in
-the order that the modules are loaded.
-
-When a template is rendered any assets specified in the template data will be
-appended to the global assets.
-
-Immutable App uses [Font Awesome 4.7.0](http://fontawesome.io/icons/)
-[Pure CSS 0.6.2](https://purecss.io/) and [jQuery 3.1.1](http://jquery.com/)
-served by [jsDelivr](https://www.jsdelivr.com/) along with local css and js
-by default.
-
-##### Using assets in templates
-
-    {{#each js}}
-        <script src="{{{src}}}" ...
-    {{/each}}
-
-Asset variables (e.g. css, js) are set at the root level of the template data
-structure.
-
-By default all assets except `include` are rendered using the `head.hbs`
-template file in `lib/partials`.
-
-##### css
-
-    app.config({
-        assets: {
-            css: [
-                {
-                    href: '/assets/base.css'
-                }
-            ]
-        }
-    })
-
-`css` assets are rendered as link tags with the rel="stylesheet" attribute.
-
-The attributes `href`, `crossorigin`, `integrity` and `media` are supported
-by the default template.
-
-##### favicon
-
-    app.config({
-        assets: {
-            favicon: '/my-favicon.ico'
-        }
-    })
-
-`favicon` is used to specify the `href` of the favicon which is set with a link
-tag by default. The href can be either a regular or a data URI. An empty
-favicon data URI is set by default.
-
-##### include
-
-    app.config({
-        assets: {
-            include: [
-                'my-template',
-                'another/custom-template'
-            ]
-        }
-    })
-
-`include` specifies a list of template partial names that will be rendered on
-the page. These templates will be rendered at the end of the body by default.
-
-##### js
-
-    app.config({
-        assets: {
-            js: [
-                {
-                    src: '/assets/base.js',
-                },
-            ]
-        }
-    })
-
-`js` assets are rendered as script tags. The `src`, `integrity`, `crossorigin`,
-`async` and `defer` attributes are supported by default.
-
-##### meta
-
-`meta` assets are rendered as meta tags. The `charset`, `content`, `httpEquiv`
-and `name` attributes are supported by default.
-
-##### window
-
-    app.config({
-        assets: {
-            window: {
-                foo: {
-                    bar: true
-                }
-            }
-        }
-    })
-
-`window` must be an object with properties that will be set on the window
-object in the browser javascript context. All values will be JSON encoded.
 
 #### database
 
@@ -441,29 +160,6 @@ be used by a model named foo.
 
 The `default` database will be used by any models that don't have their own
 connection defined by name.
-
-#### handlebars
-
-    app.config({
-        handlebars: {
-            defaultLayout: 'main',
-            ext: '.hbs',
-            helpers: {},
-        },
-        handlebarsHelpers: true,
-    })
-
-This example shows the default handlebars configuration.
-
-`defaultLayout` is the name of the layout file that will be used if a controller
-does not specify another layout.
-
-`ext` is the extension for template files.
-
-`helpers` is an object with helper functions keyed by name.
-
-The `handlebarsHelpers` boolean determines whether or not the
-handlebars-helpers npm module should be loaded.
 
 #### use (Express middleware)
 
@@ -502,12 +198,8 @@ bodyParser, cookieParser, and morgan.
 
     app.config({
         dir: {
-            assets: [],
             app: [],
-            helpers: [],
-            layouts: [],
-            partials: [],
-            views: [],
+            services: [],
         },
     })
 
@@ -613,74 +305,15 @@ configuration.
 
 ### Security
 
-While using Immutable data and restricting access to update and delete
-privileges on the database makes the entire system more secure Immutable Apps
-also utilize Immutable Access Control to provide fine grained control over
-access to resources.
-
-Immutable Access Control is fully integrated with Immutable Models and
-Immutable App Auth so that what data can be accessed and what data operations
-can be performed will always be determined by the access control system.
-
-With Immutable App there is never a need to do ad-hoc access control or data
-filtering.
-
-All Immutable Core Model data has record level ownership by default along with
-tracing of what session and account created each record.
-
-Immutable Access Control works the same no matter what data store is used so
-the same access control rules will be applied whether the query is against
-MySQL, ElasticSearch, or Redis.
-
-For less secure and less reliable system like Redis and ElasticSearch
-cryptographic hashing can be used to verify the integrity of data stored in
-those systems.
-
-### Immutable App Auth
-
-    const immutableApp = require('immutable-app')`
-    const immutableAppAuth = require('immutable-app-auth')
-
-    immutableAppAuth.config({
-        device: {
-            cookie: {
-                domain: '.your-app.com',
-            },
-        },
-        facebook: { ... },
-        google: { ... },
-        session: {
-            cookie: {
-                domain: '.your-app.com',
-            },
-        },
-    })
-
-    immutableApp.config({ ... })
-
-Immutable App Auth is an Immutable App module that provides authenticated
-sessions for Immutable Apps and provides the foudation for using Immutable
-Access Control to manage the security of an Immutable App.
-
-Immutable App Auth supports Facebook and Google as auth providers and using
-these integrations is a simple matter of putting in the client id and secret
-for each provider.
-
-When using Immutable App modules it is critical to `require('immutable-app')`
-in your app.js before requiring any modules.
+!!! Immutable APP DOES NOT CURRENTLY PERFORM ANY ACCESS CONTROL ON REQUESTS !!!
 
 ### Immutable App components
 
 * Express Application Server
-* Immutable App Auth
 * Immutable App Presenter
   * Immutable Access Control
-  * Immutable App HTTP Error
-  * Immutable App HTTP Redirect
 * Immutable Core Controller
   * Immutable Core
-  * Immutable App HTTP Error
-  * Immutable App HTTP Redirect
   * Immutable HTTP Client
 * Immutable Core Model Form
 * Immutable Core Model View
@@ -690,25 +323,6 @@ in your app.js before requiring any modules.
 * Immutable Core Service
   * Immutable Core Model
 
-#### Immutable App Auth
-
-An Immutable App is composed of several modular components that all work
-together to serve a request.
-
-When a request is recieved by Express Immutable App Auth is the first component
-to handle the request.
-
-Immutable App Auth reads session and device cookies from the request to track
-activity by device and determine if the request is being made by an established
-session.
-
-If the session is logged in then Immutable App Auth will load the roles that
-are assigned to the session's account which will determine what resources the
-session is allowed to access.
-
-If the requested method and path are a valid route then the Immutable App
-Presenter handler function will be called.
-
 #### Immutable App Presenter
 
 Immutable App Presenter provides an itermediary layer between the Express
@@ -716,9 +330,6 @@ request and the Immutable Core Controller.
 
 The Presenter will first use Immutable Access Control to check if the current
 session is allowed to access the requested path with the requested http method.
-
-The Presenter will then determine based on what roles the session has which
-controller and template to use to handle the request.
 
 The Presenter also performs validation and normalization of input data.
 
@@ -728,17 +339,10 @@ get it from e.g. req.params.foo, req.body.bar, req.headers.bam, etc.
 Once the Presenter has built and validated the input data it calls the
 Controller with the input.
 
-The Controller should resolve with data that can be used as a JSON response
-or as variables for rendering a template depending on what the client has
-requested. The response data can also include headers and cookies to send to
-the client.
+The Controller should resolve with data that can be used as a JSON response.
+The response data can also include headers to send to the client.
 
-If the Controller throws an error the Presenter may use this to render an
-error page in the case of an Immutable App HTTP Error or to perform a redirect
-in the case of Immutable App HTTP Redirect.
-
-Errors and Redirects will also be returned as JSON if the client has requested
-it.
+Errors and Redirects will also be returned as JSON.
 
 #### Immutable Core Controller
 
@@ -774,11 +378,6 @@ perform that action.
 
 If access is denied an Immutable App HTTP Error will be thrown.
 
-When a Controller is creating or modifying a record Immutable Core Model Form
-will typically be used to generate a form that can be used to manipulate the
-model. This form can be entirely based based on the Model's JSON schema or may
-include additional configurable customizations.
-
 When a Controller is listing or reading records Immutable Core Model View may
 be used to aggregate and/or format record data for display.
 
@@ -810,7 +409,7 @@ Immutable Core Model has its own much finer grained access controls this should
 usually not be used.
 
 Like Immutable Core Controllers it can be useful to bind extension methods
-`before` and `after` Immutable Core Model create and query methods to extend
+`before` and `after` to Immutable Core Model create and query methods to extend
 models with additional customized functionality.
 
 ### Immutable Core Model app lifecycle

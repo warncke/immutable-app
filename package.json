@@ -1,46 +1,37 @@
 {
   "author": "Ersun Warncke <ersun.warncke@gmail.com>",
   "dependencies": {
-    "bluebird": "3.5.3",
-    "body-parser": "1.18.3",
-    "callsites": "2.0.0",
-    "change-case": "3.0.2",
-    "cookie-parser": "1.4.3",
-    "debug": "4.1.0",
+    "bluebird": "3.7.2",
+    "body-parser": "1.20.2",
+    "callsites": "3.1.0",
+    "change-case": "4.1.2",
+    "debug": "4.3.1",
     "deep-freeze": "0.0.1",
-    "express": "4.16.4",
-    "express-handlebars-multi": "0.2.31",
-    "handlebars-helpers": "0.10.0",
+    "express": "4.18.2",
     "if-defined": "1.0.18",
-    "immutable-access-control": "0.5.18",
-    "immutable-app-http-error": "0.1.19",
-    "immutable-app-http-redirect": "0.1.17",
-    "immutable-core": "2.3.3",
-    "immutable-core-component": "0.0.45",
-    "immutable-core-controller": "0.11.1",
-    "immutable-core-model": "4.0.3",
-    "immutable-core-service": "0.2.41",
+    "immutable-access-control": "0.6.0",
+    "immutable-core": "3.1.0",
+    "immutable-core-controller": "0.12.0",
+    "immutable-core-model": "6.0.0",
+    "immutable-core-service": "0.3.0",
     "immutable-require-valid-optional-object": "0.1.18",
-    "morgan": "1.9.1",
-    "pluralize": "7.0.0",
-    "random-unique-id": "1.1.0",
-    "stack-utils": "1.0.2",
-    "winston": "3.1.0"
+    "morgan": "1.10.0",
+    "pluralize": "8.0.0",
+    "random-unique-id": "2.1.0",
+    "stack-utils": "2.0.3",
+    "winston": "3.3.3"
   },
   "description": "Immutable app",
   "devDependencies": {
-    "chai": "4.2.0",
+    "chai": "4.3.10",
     "chai-as-promised": "7.1.1",
-    "immutable-http-client": "0.7.4",
-    "mocha": "5.2.0",
-    "sinon": "7.1.1",
-    "sinon-chai": "3.2.0"
+    "immutable-http-client": "0.9.0",
+    "mocha": "10.2.0",
+    "sinon": "10.0.0",
+    "sinon-chai": "3.6.0"
   },
   "directories": {
     "test": "test"
-  },
-  "engines": {
-    "node": ">=7.6.0"
   },
   "license": "MIT",
   "main": "lib/immutable-app.js",
@@ -49,5 +40,5 @@
   "scripts": {
     "test": "mocha --exit"
   },
-  "version": "0.16.1"
+  "version": "0.17.0"
 }
