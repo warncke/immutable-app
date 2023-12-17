@@ -34,7 +34,7 @@ complete.
     var app = immutableApp('my-app')
 
     app.config({
-        database: {
+        mysql: {
             default: mysql,
         }
     })
@@ -143,16 +143,16 @@ controllers, routes, express middleware, etc.
 
 ### Global configuration
 
-#### database
+#### mysql
 
     app.config({
-        database: {
+        mysql: {
             default: defaultDb,
             foo: fooDb,
         }
     })
 
-The database object is used to defined one or more database connetions that
+The `mysql` object is used to define one or more database connections that
 will be used by models.
 
 Database connections are keyed by the model name so in this example fooDb would
